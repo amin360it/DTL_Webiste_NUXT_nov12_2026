@@ -1,0 +1,1 @@
+import{i as e}from"#entry";var t=e(`/assets/img/img_16890871.jpg`);export{t};

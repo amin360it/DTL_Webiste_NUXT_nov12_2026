@@ -1,0 +1,1 @@
+import{i as e}from"#entry";var t=e(`/assets/img/1446815489slid - fold door, mahogany-compressedc26f.jpg`);export{t};

@@ -1,0 +1,1 @@
+import{i as e}from"#entry";var t=e(`/assets/img/dtl-catalog-2024-cover2b4d.png`);export{t};

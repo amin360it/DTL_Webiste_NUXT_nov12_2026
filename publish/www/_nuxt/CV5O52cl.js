@@ -1,0 +1,1 @@
+import{i as e}from"#entry";var t=e(`/assets/img/dscf1358_1422c.jpg`),n=e(`/assets/img/e2085f89c57999946881a821c629421a-crop-u111444cf5.png`),r=e(`/assets/img/p7_info_dhakathai-alcomaxx3404.jpg`);export{n,t as r,r as t};
