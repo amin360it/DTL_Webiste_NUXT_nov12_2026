@@ -1,12 +1,12 @@
 import { spawn } from 'node:child_process'
-import { mkdtempSync } from 'node:fs'
+import { mkdtempSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
-const PORT = 9411
+const PORT = 9412
 const URL_TARGET = 'http://localhost:3000/contact'
-const widths = [320, 360, 375, 414, 480, 574, 640, 720, 768, 820, 900]
+const widths = [320, 360, 375, 390, 414, 480, 574, 640, 720, 768, 800, 820, 821, 850, 900, 1000, 1024, 1080, 1150, 1200, 1280, 1440]
 
 const dir = mkdtempSync(join(tmpdir(), 'cdp-'))
 const chrome = spawn(CHROME, [
@@ -22,7 +22,7 @@ const chrome = spawn(CHROME, [
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 async function waitPort() {
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 80; i++) {
     try {
       const r = await fetch(`http://127.0.0.1:${PORT}/json/version`)
       if (r.ok) return (await r.json()).webSocketDebuggerUrl
@@ -32,7 +32,7 @@ async function waitPort() {
   throw new Error('chrome did not start')
 }
 
-const browserWs = await waitPort()
+await waitPort()
 const created = await fetch(`http://127.0.0.1:${PORT}/json/new?about:blank`, { method: 'PUT' }).then((r) => r.json())
 const ws = new WebSocket(created.webSocketDebuggerUrl)
 await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej })
@@ -57,81 +57,89 @@ async function evaluate(expression) {
   if (r.exceptionDetails) throw new Error(r.exceptionDetails.text + ' ' + (r.result?.description || ''))
   return r.result.value
 }
-
-await send('Page.enable')
-await send('Runtime.enable')
+const js = (s) => JSON.stringify(s)
 
 const probe = `(() => {
   const q = (s) => document.querySelector(s)
   const rect = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height), right: Math.round(r.right) } }
-  const hdr = q('.header')
-  const hs = getComputedStyle(hdr)
   const menu = q('.nav-menu')
-  const ms = getComputedStyle(menu)
-  const head = q('.drawer-head')
-  const close = q('.drawer-close')
-  const brand = q('.drawer-brand')
   const mr = menu.getBoundingClientRect()
+  const cs = getComputedStyle(menu)
   const outside = []
-  document.querySelectorAll('.nav-menu *, .nav-backdrop, .header .container > *').forEach((el) => {
-    const r = el.getBoundingClientRect()
-    if (r.width === 0 || r.height === 0) return
-    if (r.right > mr.right + 1 || r.left < mr.left - 1) {
-      outside.push((el.className || el.tagName) + ' ' + Math.round(r.left) + '-' + Math.round(r.right))
-    }
-  })
+  if (cs.position === 'fixed') {
+    document.querySelectorAll('.nav-menu li, .nav-menu li a, .nav-menu .dropdown, .nav-menu .dd-inner, .drawer-head, .drawer-brand, .drawer-close').forEach((el) => {
+      const r = el.getBoundingClientRect()
+      if (r.width === 0 || r.height === 0) return
+      if (r.right > mr.right + 1 || r.left < mr.left - 1) outside.push((el.className || el.tagName) + ':' + Math.round(r.left) + '-' + Math.round(r.right))
+    })
+  }
+  const drop = q('.has-dd .dropdown')
   return {
     vw: window.innerWidth,
-    vh: window.innerHeight,
     docScrollW: document.documentElement.scrollWidth,
-    bodyScrollW: document.body.scrollWidth,
-    header: rect(hdr),
-    headerPos: hs.position,
-    headerZ: hs.zIndex,
-    headerFilter: hs.filter + '|' + hs.backdropFilter + '|' + hs.transform + '|' + hs.contain + '|' + hs.willChange,
+    bodyOverflow: getComputedStyle(document.body).overflow,
+    menuClass: menu.className,
+    menuPos: cs.position,
     menu: rect(menu),
-    menuPos: ms.position,
-    menuOverflow: ms.overflowX + '/' + ms.overflowY,
     menuScroll: menu.scrollWidth + '/' + menu.clientWidth + '/' + menu.scrollHeight + '/' + menu.clientHeight,
-    menuPad: ms.padding,
-    head: rect(head),
-    headScrollW: head ? head.scrollWidth + '/' + head.clientWidth : null,
-    close: rect(close),
-    closeOpacity: close ? getComputedStyle(close).display + '/' + getComputedStyle(close).visibility : null,
-    brand: rect(brand),
-    brandText: rect(q('.drawer-brand span')),
+    head: rect(q('.drawer-head')),
+    headScroll: q('.drawer-head') ? q('.drawer-head').scrollWidth + '/' + q('.drawer-head').clientWidth : null,
+    close: rect(q('.drawer-close')),
+    brand: rect(q('.drawer-brand')),
+    brandStrong: rect(q('.drawer-brand strong')),
+    brandSmall: rect(q('.drawer-brand small')),
     toggle: rect(q('.nav-toggle')),
+    toggleVis: q('.nav-toggle') ? getComputedStyle(q('.nav-toggle')).visibility : null,
     backdrop: rect(q('.nav-backdrop')),
-    bodyOverflow: document.body.style.overflow + '|' + getComputedStyle(document.body).overflow,
-    outside: outside.slice(0, 8),
-    outsideCount: outside.length
+    backdropVis: q('.nav-backdrop') ? getComputedStyle(q('.nav-backdrop')).visibility : null,
+    dropPos: drop ? getComputedStyle(drop).position : null,
+    dropTransform: drop ? getComputedStyle(drop).transform : null,
+    dropRect: rect(drop),
+    navScroll: q('.nav-menu').scrollWidth + '/' + q('.nav-menu').clientWidth,
+    brandTextDisplay: q('.brand-text') ? getComputedStyle(q('.brand-text')).display : null,
+    outsideCount: outside.length,
+    outside: outside.slice(0, 6)
   }
 })()`
 
-const out = []
+const results = []
+const shots = []
 for (const w of widths) {
   await send('Emulation.setDeviceMetricsOverride', { width: w, height: 800, deviceScaleFactor: 1, mobile: false })
   await send('Page.navigate', { url: URL_TARGET })
   let ready = false
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 100; i++) {
     try {
       ready = await evaluate(`!!document.querySelector('.nav-toggle') && document.readyState === 'complete'`)
       if (ready) break
     } catch {}
     await sleep(250)
   }
-  if (!ready) { out.push({ vw: w, error: 'not ready' }); continue }
-  await sleep(300)
+  if (!ready) { results.push({ vw: w, error: 'not ready' }); continue }
+  await sleep(400)
   await evaluate(`window.scrollTo(0, 300)`)
+  await sleep(150)
   if (w <= 820) {
-    await evaluate(`document.querySelector('.nav-toggle').click()`)
-    await sleep(700)
+    for (let i = 0; i < 12; i++) {
+      const open = await evaluate(`document.querySelector('.nav-menu').classList.contains('open')`)
+      if (open) break
+      await evaluate(`document.querySelector('.nav-toggle').click()`)
+      await sleep(350)
+    }
   }
   const data = await evaluate(probe)
-  out.push(data)
+  data.vw = w
+  results.push(data)
+  if ([320, 375, 414, 574, 768, 820].includes(w)) {
+    const shot = await send('Page.captureScreenshot', { format: 'png' })
+    const file = `scripts/_shot-${w}.png`
+    writeFileSync(file, Buffer.from(shot.data, 'base64'))
+    shots.push(file)
+  }
 }
 
-console.log(JSON.stringify(out, null, 1))
+writeFileSync('scripts/_probe2.json', JSON.stringify(results, null, 1))
+console.log('shots:', shots.join(' '))
 
 ws.close()
 chrome.kill()

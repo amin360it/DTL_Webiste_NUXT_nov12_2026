@@ -279,4 +279,30 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .site-chrome { display: contents; }
+
+@media (min-width: 821px) and (max-width: 1080px) {
+  .brand-text { display: none; }
+}
+
+@media (min-width: 821px) and (max-width: 1200px) {
+  .nav-menu { gap: 2px; }
+  .nav-menu > li > a { padding: 11px 9px; font-size: 0.83rem; }
+  .nav-menu > li > a::after { left: 9px; right: 9px; }
+  .nav-cta { padding: 9px 15px !important; margin-left: 2px; }
+  .dd-caret { margin-left: 3px; }
+}
+
+@media (max-width: 820px) {
+  .nav-menu { max-height: 100dvh; }
+  .drawer-head { gap: 8px; }
+  .drawer-brand { flex: 1 1 auto; min-width: 0; }
+  .drawer-brand span { flex: 1 1 auto; min-width: 0; }
+  .drawer-brand strong { font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .drawer-brand small { font-size: 0.54rem; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .drawer-close { width: 34px; height: 34px; font-size: 1.25rem; }
+  .nav-menu .dropdown { position: static; transform: none; }
+  .nav-menu .has-dd:not(.open) .dropdown { visibility: hidden; }
+  .nav-menu .has-dd.open .dropdown { visibility: visible; }
+  .nav-toggle.open { visibility: hidden; }
+}
 </style>
