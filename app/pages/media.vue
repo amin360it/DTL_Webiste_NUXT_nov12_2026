@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { useModal } from '~/composables/useModal'
 
-useHead({
+useSeo({
   title: 'Media Gallery',
-  meta: [{ name: 'description', content: 'Media gallery - photos and videos of DHAKATHAI ALCOMAXX PLC events, expos and factory activities.' }]
+  description: 'Media gallery - photos and videos of DHAKATHAI ALCOMAXX PLC events, expos and factory activities.'
 })
 
 const { openVideo } = useModal()
 
-function playVideo(id: string, title: string) {
-  openVideo(id, title)
-}
-
 function playVideoFromEvent(e: Event) {
-  const btn = (e.currentTarget || e.target) as HTMLElement
+  const btn = (e.target || e.currentTarget) as HTMLElement
   const id = btn.getAttribute('data-video') || ''
   const title = btn.getAttribute('data-title') || 'Video'
   openVideo(id, title)
@@ -68,7 +64,7 @@ function playVideoFromEvent(e: Event) {
         <div class="card"><div class="card-body">
           <h3>Contributing To Bangladesh&rsquo;s Progress</h3>
           <p class="text-light-c">Supplying essential aluminium profiles across the country.</p>
-          <button class="video-thumb" @click="playVideo('_k_nH7G99Gc', 'Contributing to Bangladesh' + String.fromCharCode(39) + 's progress')" data-video="_k_nH7G99Gc" data-title="Contributing to Bangladesh's progress"><img src="https://i.ytimg.com/vi/_k_nH7G99Gc/hqdefault.jpg" alt="Contributing to Bangladesh's progress" loading="lazy"><span class="video-play"></span><span class="video-tag">Watch on YouTube</span></button>
+          <button class="video-thumb" @click="playVideoFromEvent" data-video="_k_nH7G99Gc" data-title="Contributing to Bangladesh's progress"><img src="https://i.ytimg.com/vi/_k_nH7G99Gc/hqdefault.jpg" alt="Contributing to Bangladesh's progress" loading="lazy"><span class="video-play"></span><span class="video-tag">Watch on YouTube</span></button>
         </div></div>
         <div class="card"><div class="card-body">
           <h3>Project Showcase</h3>

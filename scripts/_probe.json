@@ -1,0 +1,915 @@
+[
+ {
+  "vw": 320,
+  "vh": 800,
+  "docScrollW": 320,
+  "bodyScrollW": 320,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 320,
+   "h": 46,
+   "right": 320
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 0,
+   "y": 0,
+   "w": 320,
+   "h": 800,
+   "right": 320
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "304/304/1328/800",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 17,
+   "y": 0,
+   "w": 272,
+   "h": 192,
+   "right": 289
+  },
+  "headScrollW": "272/272",
+  "close": {
+   "x": 253,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 289
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 17,
+   "y": 16,
+   "w": 224,
+   "h": 161,
+   "right": 241
+  },
+  "brandText": {
+   "x": 197,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 288
+  },
+  "toggle": {
+   "x": 206,
+   "y": 11,
+   "w": 90,
+   "h": 25,
+   "right": 296
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 320,
+   "h": 800,
+   "right": 320
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "dropdown -107-157",
+   "dd-inner -107-157",
+   "dd-title -107-157",
+   "A -107-157",
+   "A -107-157",
+   "A -107-157",
+   "A -107-157",
+   "A -107-157"
+  ],
+  "outsideCount": 33
+ },
+ {
+  "vw": 360,
+  "vh": 800,
+  "docScrollW": 360,
+  "bodyScrollW": 360,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 360,
+   "h": 46,
+   "right": 360
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 0,
+   "y": 0,
+   "w": 360,
+   "h": 800,
+   "right": 360
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "344/344/1328/800",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 17,
+   "y": 0,
+   "w": 312,
+   "h": 192,
+   "right": 329
+  },
+  "headScrollW": "312/312",
+  "close": {
+   "x": 293,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 329
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 17,
+   "y": 16,
+   "w": 264,
+   "h": 161,
+   "right": 281
+  },
+  "brandText": {
+   "x": 197,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 288
+  },
+  "toggle": {
+   "x": 246,
+   "y": 11,
+   "w": 90,
+   "h": 25,
+   "right": 336
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 360,
+   "h": 800,
+   "right": 360
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "dropdown -127-177",
+   "dd-inner -127-177",
+   "dd-title -127-177",
+   "A -127-177",
+   "A -127-177",
+   "A -127-177",
+   "A -127-177",
+   "A -127-177"
+  ],
+  "outsideCount": 33
+ },
+ {
+  "vw": 375,
+  "vh": 800,
+  "docScrollW": 360,
+  "bodyScrollW": 360,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 360,
+   "h": 46,
+   "right": 360
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 390,
+   "y": 0,
+   "w": 375,
+   "h": 800,
+   "right": 765
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "359/359/1328/800",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 407,
+   "y": 0,
+   "w": 327,
+   "h": 192,
+   "right": 734
+  },
+  "headScrollW": "327/327",
+  "close": {
+   "x": 698,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 734
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 407,
+   "y": 16,
+   "w": 279,
+   "h": 161,
+   "right": 686
+  },
+  "brandText": {
+   "x": 587,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 678
+  },
+  "toggle": {
+   "x": 246,
+   "y": 11,
+   "w": 90,
+   "h": 25,
+   "right": 336
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 360,
+   "h": 800,
+   "right": 360
+  },
+  "bodyOverflow": "|visible",
+  "outside": [
+   "brand 24-170",
+   "nav-toggle 246-336",
+   "nav-backdrop 0-360",
+   "dropdown 256-575",
+   "dd-inner 256-575",
+   "dd-title 256-575",
+   "A 256-575",
+   "A 256-575"
+  ],
+  "outsideCount": 36
+ },
+ {
+  "vw": 414,
+  "vh": 800,
+  "docScrollW": 414,
+  "bodyScrollW": 414,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 414,
+   "h": 50,
+   "right": 414
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 114,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 414
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 131,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 383
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 347,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 383
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 131,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 335
+  },
+  "brandText": {
+   "x": 311,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 402
+  },
+  "toggle": {
+   "x": 300,
+   "y": 13,
+   "w": 90,
+   "h": 25,
+   "right": 390
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 414,
+   "h": 800,
+   "right": 414
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-186",
+   "nav-backdrop show 0-414",
+   "dropdown 17-261",
+   "dd-inner 17-261",
+   "dd-title 17-261",
+   "A 17-261",
+   "A 17-261",
+   "A 17-261"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 480,
+  "vh": 800,
+  "docScrollW": 480,
+  "bodyScrollW": 480,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 480,
+   "h": 50,
+   "right": 480
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 180,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 480
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 197,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 449
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 413,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 449
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 197,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 401
+  },
+  "brandText": {
+   "x": 377,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 468
+  },
+  "toggle": {
+   "x": 366,
+   "y": 13,
+   "w": 90,
+   "h": 25,
+   "right": 456
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 480,
+   "h": 800,
+   "right": 480
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-346",
+   "nav-backdrop show 0-480",
+   "dropdown 83-327",
+   "dd-inner 83-327",
+   "dd-title 83-327",
+   "A 83-327",
+   "A 83-327",
+   "A 83-327"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 574,
+  "vh": 800,
+  "docScrollW": 559,
+  "bodyScrollW": 559,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 559,
+   "h": 50,
+   "right": 559
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 583,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 883
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 600,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 852
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 816,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 852
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 600,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 804
+  },
+  "brandText": {
+   "x": 780,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 871
+  },
+  "toggle": {
+   "x": 445,
+   "y": 13,
+   "w": 90,
+   "h": 25,
+   "right": 535
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 559,
+   "h": 800,
+   "right": 559
+  },
+  "bodyOverflow": "|visible",
+  "outside": [
+   "brand 24-409",
+   "nav-toggle 445-535",
+   "nav-backdrop 0-559",
+   "dropdown 486-730",
+   "dd-inner 486-730",
+   "dd-title 486-730",
+   "A 486-730",
+   "A 486-730"
+  ],
+  "outsideCount": 36
+ },
+ {
+  "vw": 640,
+  "vh": 800,
+  "docScrollW": 640,
+  "bodyScrollW": 640,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 640,
+   "h": 60,
+   "right": 640
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 340,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 640
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 357,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 609
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 573,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 609
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 357,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 561
+  },
+  "brandText": {
+   "x": 537,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 628
+  },
+  "toggle": {
+   "x": 526,
+   "y": 18,
+   "w": 90,
+   "h": 25,
+   "right": 616
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 640,
+   "h": 800,
+   "right": 640
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-485",
+   "nav-backdrop show 0-640",
+   "dropdown 243-487",
+   "dd-inner 243-487",
+   "dd-title 243-487",
+   "A 243-487",
+   "A 243-487",
+   "A 243-487"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 720,
+  "vh": 800,
+  "docScrollW": 720,
+  "bodyScrollW": 720,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 720,
+   "h": 60,
+   "right": 720
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 420,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 720
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 437,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 689
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 653,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 689
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 437,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 641
+  },
+  "brandText": {
+   "x": 617,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 708
+  },
+  "toggle": {
+   "x": 606,
+   "y": 18,
+   "w": 90,
+   "h": 25,
+   "right": 696
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 720,
+   "h": 800,
+   "right": 720
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-485",
+   "nav-backdrop show 0-720",
+   "dropdown 323-567",
+   "dd-inner 323-567",
+   "dd-title 323-567",
+   "A 323-567",
+   "A 323-567",
+   "A 323-567"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 768,
+  "vh": 800,
+  "docScrollW": 768,
+  "bodyScrollW": 768,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 768,
+   "h": 60,
+   "right": 768
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 468,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 768
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 485,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 737
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 701,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 737
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 485,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 689
+  },
+  "brandText": {
+   "x": 665,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 756
+  },
+  "toggle": {
+   "x": 654,
+   "y": 18,
+   "w": 90,
+   "h": 25,
+   "right": 744
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 768,
+   "h": 800,
+   "right": 768
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-485",
+   "nav-backdrop show 0-768",
+   "dropdown 371-615",
+   "dd-inner 371-615",
+   "dd-title 371-615",
+   "A 371-615",
+   "A 371-615",
+   "A 371-615"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 820,
+  "vh": 800,
+  "docScrollW": 820,
+  "bodyScrollW": 820,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 820,
+   "h": 60,
+   "right": 820
+  },
+  "headerPos": "sticky",
+  "headerZ": "1102",
+  "headerFilter": "none|none|none|none|auto",
+  "menu": {
+   "x": 520,
+   "y": 0,
+   "w": 300,
+   "h": 800,
+   "right": 820
+  },
+  "menuPos": "fixed",
+  "menuOverflow": "auto/auto",
+  "menuScroll": "287/284/1349/785",
+  "menuPad": "0px 16px 30px",
+  "head": {
+   "x": 537,
+   "y": 0,
+   "w": 252,
+   "h": 192,
+   "right": 789
+  },
+  "headScrollW": "271/252",
+  "close": {
+   "x": 753,
+   "y": 78,
+   "w": 36,
+   "h": 36,
+   "right": 789
+  },
+  "closeOpacity": "flex/visible",
+  "brand": {
+   "x": 537,
+   "y": 16,
+   "w": 204,
+   "h": 161,
+   "right": 741
+  },
+  "brandText": {
+   "x": 717,
+   "y": 28,
+   "w": 91,
+   "h": 137,
+   "right": 808
+  },
+  "toggle": {
+   "x": 706,
+   "y": 18,
+   "w": 90,
+   "h": 25,
+   "right": 796
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 820,
+   "h": 800,
+   "right": 820
+  },
+  "bodyOverflow": "hidden|hidden",
+  "outside": [
+   "brand 24-485",
+   "nav-backdrop show 0-820",
+   "dropdown 423-667",
+   "dd-inner 423-667",
+   "dd-title 423-667",
+   "A 423-667",
+   "A 423-667",
+   "A 423-667"
+  ],
+  "outsideCount": 35
+ },
+ {
+  "vw": 900,
+  "vh": 800,
+  "docScrollW": 1223,
+  "bodyScrollW": 1223,
+  "header": {
+   "x": 0,
+   "y": 0,
+   "w": 885,
+   "h": 73,
+   "right": 885
+  },
+  "headerPos": "sticky",
+  "headerZ": "1000",
+  "headerFilter": "none|blur(12px)|none|none|auto",
+  "menu": {
+   "x": 505,
+   "y": 0,
+   "w": 356,
+   "h": 73,
+   "right": 861
+  },
+  "menuPos": "static",
+  "menuOverflow": "visible/visible",
+  "menuScroll": "718/356/500/73",
+  "menuPad": "0px",
+  "head": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "headScrollW": "0/0",
+  "close": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "closeOpacity": "inline-block/visible",
+  "brand": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "brandText": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "toggle": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "backdrop": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "right": 0
+  },
+  "bodyOverflow": "|visible",
+  "outside": [
+   "brand 24-485",
+   "dropdown 683-943",
+   "dd-inner 683-943",
+   "A 683-943",
+   "A 683-943",
+   "A 683-943",
+   "has-dd 864-1001",
+   "A 864-1001"
+  ],
+  "outsideCount": 34
+ }
+]

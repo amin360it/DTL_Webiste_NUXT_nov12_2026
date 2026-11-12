@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Factory',
-  meta: [{ name: 'description', content: 'DHAKATHAI ALCOMAXX PLC factory - Burirpara, East Norshinghpur, Ashulia, Savar, Dhaka.' }]
+  description: 'DHAKATHAI ALCOMAXX PLC factory - Burirpara, East Norshinghpur, Ashulia, Savar, Dhaka.'
 })
 </script>
 

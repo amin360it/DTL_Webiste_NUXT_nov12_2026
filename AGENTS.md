@@ -480,3 +480,20 @@ npm run preview
 # Check build output
 Get-ChildItem dist -Recurse -Filter "*.html" | Measure-Object
 ```
+
+---
+
+## DESIGN SYSTEM (read before touching UI)
+
+`DESIGN.md` is the design, UI/UX and accessibility guide for this project: colour tokens,
+typography, spacing/radius/shadow scale, component catalogue, responsive breakpoints,
+interaction rules, accessibility checklist, SEO conventions and a page scaffold template.
+
+Any agent or developer editing layout, components or styles must read `DESIGN.md` first and
+follow it. In short:
+
+- `app/assets/css/main.css` is the single source of design truth - **do not edit it**.
+- Reuse existing classes (`.section`, `.section-head`, `.kicker`, `.grid`, `.card`, `.btn`, `.page-hero`, `.table-wrap`) before writing new CSS.
+- New page-local CSS goes in `<style scoped>` and uses the `:root` tokens only.
+- Navy (`--primary`) is structure, amber (`--accent`) is action; never use amber for small text on white.
+- Every page: `.page-hero` with one `<h1>`, then `.section` blocks; no client-only content that must be crawlable.

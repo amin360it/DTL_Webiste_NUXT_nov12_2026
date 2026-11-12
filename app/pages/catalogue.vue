@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-useHead({
+useSeo({
   title: 'Product Catalogue',
-  meta: [{ name: 'description', content: 'Download DHAKATHAI ALCOMAXX PLC product catalogues and detailed profile drawings - architectural, hardware, furniture, industrial and electrical profiles.' }]
+  description: 'Download DHAKATHAI ALCOMAXX PLC product catalogues and detailed profile drawings - architectural, hardware, furniture, industrial and electrical profiles.'
 })
 
 const tab = ref('cat-arch')

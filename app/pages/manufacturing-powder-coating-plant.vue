@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Powder Coating Plant',
-  meta: [{ name: 'description', content: 'Powder coating plant - the first conveyor robotic coating plant in Bangladesh using Pure Polyester powder coating.' }]
+  description: 'Powder coating plant - the first conveyor robotic coating plant in Bangladesh using Pure Polyester powder coating.'
 })
 </script>
 

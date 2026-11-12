@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Warehousing & Delivery',
-  meta: [{ name: 'description', content: 'Finished goods warehousing and delivery - barcoded inventory and nationwide transporter network by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Finished goods warehousing and delivery - barcoded inventory and nationwide transporter network by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

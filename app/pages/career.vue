@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Career',
-  meta: [{ name: 'description', content: 'Join DHAKATHAI ALCOMAXX PLC team - current job openings including Managing Director/CEO, CFO, Head of Operations, MIS Manager and more.' }]
+  description: 'Join DHAKATHAI ALCOMAXX PLC team - current job openings including Managing Director/CEO, CFO, Head of Operations, MIS Manager and more.'
 })
 </script>
 

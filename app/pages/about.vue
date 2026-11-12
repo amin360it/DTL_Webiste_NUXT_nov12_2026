@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'About Us',
-  meta: [{ name: 'description', content: 'Learn about DHAKATHAI ALCOMAXX PLC - Bangladesh\'s largest aluminium extrusion manufacturer since 1997.' }]
+  description: "Learn about DHAKATHAI ALCOMAXX PLC - Bangladesh's largest aluminium extrusion manufacturer since 1997."
 })
 </script>
 

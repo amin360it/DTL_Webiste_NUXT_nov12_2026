@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Enlisted Developers',
-  meta: [{ name: 'description', content: 'List of enlisted developer companies partnered with DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'List of enlisted developer companies partnered with DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

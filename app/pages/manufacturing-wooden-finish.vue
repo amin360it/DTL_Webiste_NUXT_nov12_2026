@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Wooden Finish',
-  meta: [{ name: 'description', content: 'Wood grain finished aluminium profiles - Mahogany, Cherry, Cedar, Walnut and Cinnamon wood finishes by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Wood grain finished aluminium profiles - Mahogany, Cherry, Cedar, Walnut and Cinnamon wood finishes by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

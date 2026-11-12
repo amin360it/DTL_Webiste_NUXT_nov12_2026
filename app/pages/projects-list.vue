@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Project List',
-  meta: [{ name: 'description', content: 'Complete list of DHAKATHAI ALCOMAXX PLC projects - ongoing, 2018-2019 and 2016-2017 completed projects.' }]
+  description: 'Complete list of DHAKATHAI ALCOMAXX PLC projects - ongoing, 2018-2019 and 2016-2017 completed projects.'
 })
 
 const tab = ref('ongoing')

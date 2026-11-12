@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Products',
-  meta: [{ name: 'description', content: 'Explore the full product range of DHAKATHAI ALCOMAXX PLC - architectural, industrial, furniture, hardware, electrical and automobile aluminium profiles.' }]
+  description: 'Explore the full product range of DHAKATHAI ALCOMAXX PLC - architectural, industrial, furniture, hardware, electrical and automobile aluminium profiles.'
 })
 </script>
 

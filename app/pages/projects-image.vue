@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Project Image Gallery',
-  meta: [{ name: 'description', content: 'Project image gallery - landmark projects across Bangladesh built with DHAKATHAI ALCOMAXX PLC aluminium profiles.' }]
+  description: 'Project image gallery - landmark projects across Bangladesh built with DHAKATHAI ALCOMAXX PLC aluminium profiles.'
 })
 </script>
 

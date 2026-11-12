@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Quality Inspection',
-  meta: [{ name: 'description', content: 'Quality inspection for premium aluminium profiles - BS 1474, ASTM B221, BS 3987 and AAMA 611-98 Class 1 standards.' }]
+  description: 'Quality inspection for premium aluminium profiles - BS 1474, ASTM B221, BS 3987 and AAMA 611-98 Class 1 standards.'
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Packaging',
-  meta: [{ name: 'description', content: 'Standard packaging - quality poly-wrapped and premium shrink-wrapped packaging with protective tape by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Standard packaging - quality poly-wrapped and premium shrink-wrapped packaging with protective tape by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useModal } from '~/composables/useModal'
 
-useHead({
+useSeo({
   title: 'Project Video',
-  meta: [{ name: 'description', content: 'Project videos of DHAKATHAI ALCOMAXX PLC landmark projects and manufacturing.' }]
+  description: 'Project videos of DHAKATHAI ALCOMAXX PLC landmark projects and manufacturing.'
 })
 
 const { openVideo } = useModal()

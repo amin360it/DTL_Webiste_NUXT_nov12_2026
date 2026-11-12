@@ -19,6 +19,11 @@ export default defineNuxtConfig({
       ]
     }
   },
+  runtimeConfig: {
+    public: {
+      siteUrl: 'https://dhakathaibd.com'
+    }
+  },
   css: ['~/assets/css/main.css'],
   nitro: {
     output: {

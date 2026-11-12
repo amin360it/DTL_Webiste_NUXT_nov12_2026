@@ -3,15 +3,35 @@ import { useModal } from '~/composables/useModal'
 import { wirePageInteractions } from '~/composables/useLegacyInteractions'
 import { watch, onMounted, nextTick } from 'vue'
 
-const { state } = useModal()
+const { state, closeLightbox, closePdf, closeVideo } = useModal()
 const route = useRoute()
 
 watch(() => state.lightbox.open || state.pdf.open || state.video.open, (anyOpen) => {
   document.body.style.overflow = anyOpen ? 'hidden' : ''
 })
 
-onMounted(() => wirePageInteractions())
-watch(() => route.fullPath, () => nextTick(() => wirePageInteractions()))
+function closeAllModals() {
+  closeLightbox()
+  closePdf()
+  closeVideo()
+  document.body.style.overflow = ''
+}
+
+onMounted(() => {
+  wirePageInteractions()
+  window.addEventListener('popstate', closeAllModals)
+  window.addEventListener('pageshow', closeAllModals)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('popstate', closeAllModals)
+  window.removeEventListener('pageshow', closeAllModals)
+})
+
+watch(() => route.fullPath, () => {
+  closeAllModals()
+  nextTick(() => wirePageInteractions())
+})
 
 function onKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape') {

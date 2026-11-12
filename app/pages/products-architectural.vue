@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-useHead({
+useSeo({
   title: 'Architectural Aluminium Profiles',
-  meta: [{ name: 'description', content: 'Architectural aluminium profiles - sliding frames, fixed frames, stick wall systems, semi-unitized series, doors, windows and curtain walls by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Architectural aluminium profiles - sliding frames, fixed frames, stick wall systems, semi-unitized series, doors, windows and curtain walls by DHAKATHAI ALCOMAXX PLC.'
 })
 
 const tab = ref('tab-frames')

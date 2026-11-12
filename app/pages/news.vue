@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Latest News',
-  meta: [{ name: 'description', content: 'Latest news from DHAKATHAI ALCOMAXX PLC - IPO filing, expos, dealer conferences and company announcements.' }]
+  description: 'Latest news from DHAKATHAI ALCOMAXX PLC - IPO filing, expos, dealer conferences and company announcements.'
 })
 </script>
 

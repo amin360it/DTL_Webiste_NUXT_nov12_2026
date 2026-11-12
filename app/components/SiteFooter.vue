@@ -7,12 +7,24 @@
           <p class="footer-tag">MANUFACTURER OF QUALITY <strong>ALUMINIUM PROFILES</strong></p>
           <p class="footer-desc">DHAKATHAI ALCOMAXX PLC is Bangladesh&rsquo;s largest single manufacturer of aluminium profiles, operating with eight advanced extrusion presses since 1997.</p>
           <div class="footer-social">
-            <a href="https://www.facebook.com/dhakathaibd/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/dhakathai" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/dhakathai/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/dhakathailimited/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.pinterest.com/DhakaThaiLimited/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-            <a href="http://www.youtube.com/@dhakathaialcomaxxplc" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/dhakathaibd/" target="_blank" rel="noopener" aria-label="Facebook">
+              <img src="/assets/img/social/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/dhakathai" target="_blank" rel="noopener" aria-label="Twitter">
+              <img src="/assets/img/social/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.linkedin.com/company/dhakathai/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img src="/assets/img/social/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/dhakathailimited/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="/assets/img/social/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.pinterest.com/DhakaThaiLimited/" target="_blank" rel="noopener" aria-label="Pinterest">
+              <img src="/assets/img/social/pinterest.png" alt="Pinterest">
+            </a>
+            <a href="http://www.youtube.com/@dhakathaialcomaxxplc" target="_blank" rel="noopener" aria-label="YouTube">
+              <img src="/assets/img/social/youtube.png" alt="YouTube">
+            </a>
           </div>
         </div>
         <div>
@@ -65,7 +77,7 @@
             <li><NuxtLink to="/investors-relation#governance">Corporate Governance</NuxtLink></li>
             <li><NuxtLink to="/investors-relation#governance">Annual Report</NuxtLink></li>
             <li><NuxtLink to="/investors-relation#governance">Dividend</NuxtLink></li>
-            <li><NuxtLink to="/contact">Investors Contact</NuxtLink></li>
+            <li><NuxtLink to="/contact#investor-relations">Investors Contact</NuxtLink></li>
           </ul>
         </div>
         <div>
@@ -89,10 +101,10 @@
           <NuxtLink to="/">Resources</NuxtLink> |
           <NuxtLink to="/">Disclaimer</NuxtLink> |
           <NuxtLink to="/">Privacy Policy</NuxtLink> |
-          <NuxtLink to="/">Sitemap</NuxtLink>
+          <NuxtLink to="/sitemap">Sitemap</NuxtLink>
         </div>
         <div class="footer-copy">
-          &copy; <span data-year>2026</span> DHAKATHAI ALCOMAXX PLC &reg;. All rights reserved.
+          &copy; <span data-year>2025</span> DHAKATHAI ALCOMAXX PLC &reg;. All rights reserved.
         </div>
         <div class="footer-credit">Website reDesign by <a href="https://amin360it.github.com" target="_blank" rel="noopener">Amin360iT.github.com</a></div>
       </div>

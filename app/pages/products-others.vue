@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Automotive & Railway Aluminium Profiles',
-  meta: [{ name: 'description', content: 'Automobile and railway aluminium profiles - coaster, decorative, railways, stair nosing and customized profiles by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Automobile and railway aluminium profiles - coaster, decorative, railways, stair nosing and customized profiles by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

@@ -1,0 +1,34 @@
+   DTL header and topbar CSS/J✕  +
+  ┃  107 social_01_twitter-u61267a691.png
+  ┃  107 social_06_linkedin-u4080944c.png                                                                DTL header and topbar CSS/JS
+  ┃  107 social_06_linkedin-u61257944c.png
+  ┃  108 06-sabra-(disha-engineering)751c.jpg                                                            Context
+  ┃  108 alco certified by-01d5a4.jpg                                                                    57,313 tokens
+  ┃                                                                                                      29% used
+
+     + Thought · 2.6s
+
+  ┃
+  ┃  $ $html = Get-Content "$env:TEMP\live-index.html" -Raw; [regex]::Matches($html, 'href="([^"]+\.h
+  ┃  tml)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
+  ┃
+  ┃  (27 earlier lines)
+  ┃  products.html
+  ┃  projects.html
+  ┃  projects-list.html
+  ┃  quality-inspection.html
+  ┃  warehousing-and-delivery.html
+  ┃  wooden-finish.html
+  ┃
+
+     You've used today's free messages. They reset at 6:37 AM · 11/13/2026.
+     Upgrade to OpenCode Go → /connect · Switch model → /models
+
+     Build · Big Pickle · 1h 2m
+
+  ┃
+  ┃  https://dhakathaibd.com/index.html<<<< HOME AGE IS MISSING IMGS FROM OLD SITES
+  ┃
+  ┃  Build · Big Pickle OpenCode
+  ╹▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+  ~/__WORKING_Project/DTL_Webiste_NUXT:main                              57.3K (29%)  ctrl+p commands    …/__WORKING_Pro…/DTL_Webiste_NUXT:main

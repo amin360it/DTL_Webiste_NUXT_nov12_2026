@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Extrusion Presses',
-  meta: [{ name: 'description', content: 'Extrusion presses - six presses with hot log shear technology, billet diameters 3.5 to 7 inches by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Extrusion presses - six presses with hot log shear technology, billet diameters 3.5 to 7 inches by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

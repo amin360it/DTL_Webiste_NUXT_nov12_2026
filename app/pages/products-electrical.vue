@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Electrical Aluminium Profiles',
-  meta: [{ name: 'description', content: 'Electrical aluminium profiles - general heatsink, LED light profiles, connectors, busbar, flat bar, rod and solar structure profiles.' }]
+  description: 'Electrical aluminium profiles - general heatsink, LED light profiles, connectors, busbar, flat bar, rod and solar structure profiles.'
 })
 </script>
 

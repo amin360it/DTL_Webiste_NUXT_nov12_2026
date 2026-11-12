@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Furniture Aluminium Profiles',
-  meta: [{ name: 'description', content: 'Furniture aluminium profiles - office furniture, office partition, shower, vertical blind and roller blind systems by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Furniture aluminium profiles - office furniture, office partition, shower, vertical blind and roller blind systems by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

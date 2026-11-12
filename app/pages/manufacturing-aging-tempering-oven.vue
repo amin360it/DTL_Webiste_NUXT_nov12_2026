@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Aging Tempering Oven',
-  meta: [{ name: 'description', content: 'Aging tempering oven - PLC controlled sensors with centrifugal aerodynamic system providing hardness up to 15 Webster.' }]
+  description: 'Aging tempering oven - PLC controlled sensors with centrifugal aerodynamic system providing hardness up to 15 Webster.'
 })
 </script>
 

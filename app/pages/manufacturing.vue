@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Manufacturing',
-  meta: [{ name: 'description', content: 'DHAKATHAI ALCOMAXX PLC manufacturing - casting, extruding, tempering, anodizing, powder coating, wooden finish, quality inspection, packaging and warehousing.' }]
+  description: 'DHAKATHAI ALCOMAXX PLC manufacturing - casting, extruding, tempering, anodizing, powder coating, wooden finish, quality inspection, packaging and warehousing.'
 })
 </script>
 

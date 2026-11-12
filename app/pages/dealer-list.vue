@@ -3,9 +3,9 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { divisionDealers } from '~/data/divisionDealers'
 import BangladeshMap from '~/components/BangladeshMap.vue'
 
-useHead({
+useSeo({
   title: "Sales Network & Dealer's List",
-  meta: [{ name: 'description', content: "Authorized dealers across Bangladesh - complete dealer's list organized by district with contact numbers." }]
+  description: "Authorized dealers across Bangladesh - complete dealer's list organized by district with contact numbers."
 })
 
 const activeDivision = ref('')

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { CatalogProduct } from '~/data/catalog'
 
-useHead({
+useSeo({
   title: 'Online Catalogue',
-  meta: [{ name: 'description', content: 'Browse DHAKATHAI ALCOMAXX PLC aluminium profiles - search by die number, profile name or category with product images and specifications.' }]
+  description: 'Browse DHAKATHAI ALCOMAXX PLC aluminium profiles - search by die number, profile name or category with product images and specifications.'
 })
 
 const { catalog } = await import('~/data/catalog')

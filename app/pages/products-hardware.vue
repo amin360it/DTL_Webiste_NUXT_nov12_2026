@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Hardware Aluminium Profiles',
-  meta: [{ name: 'description', content: 'Hardware and bazaar aluminium profiles - bazar section, round & corrugated pipe, ceiling tee, tower bolt, angles, U channels, I beams and showcases.' }]
+  description: 'Hardware and bazaar aluminium profiles - bazar section, round & corrugated pipe, ceiling tee, tower bolt, angles, U channels, I beams and showcases.'
 })
 </script>
 

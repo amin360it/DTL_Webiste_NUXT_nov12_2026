@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const error = useError()
 
-useHead({
-  title: 'Page Not Found',
-  meta: [{ name: 'description', content: 'The page you are looking for could not be found.' }]
+useSeo({
+  title: "Page Not Found",
+  description: "The page you are looking for could not be found.",
+  noindex: true
 })
 </script>
 

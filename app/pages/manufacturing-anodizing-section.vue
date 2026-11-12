@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Anodizing Section',
-  meta: [{ name: 'description', content: 'Anodizing section - fully automated anodizing plant with Pulse rectifiers, film thickness 10-15 microns per AAMA standards.' }]
+  description: 'Anodizing section - fully automated anodizing plant with Pulse rectifiers, film thickness 10-15 microns per AAMA standards.'
 })
 </script>
 

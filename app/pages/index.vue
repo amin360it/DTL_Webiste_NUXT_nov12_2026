@@ -1,9 +1,10 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'DHAKATHAI ALCOMAXX PLC - Best Aluminum Company in Bangladesh',
-  titleTemplate: null,
-  meta: [{ name: 'description', content: "DHAKATHAI ALCOMAXX PLC - Bangladesh's largest aluminium extrusion company. Manufacturer of quality aluminium profiles since 1997." }]
+  description: "DHAKATHAI ALCOMAXX PLC - Bangladesh's largest aluminium extrusion company. Manufacturer of quality aluminium profiles since 1997.",
+  titleTemplate: null
 })
+useOrganizationSchema()
 
 const heroIndex = ref(0)
 const { openVideo } = useModal()

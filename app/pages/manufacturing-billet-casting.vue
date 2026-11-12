@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Billet Casting',
-  meta: [{ name: 'description', content: 'Billet casting section - continuous casting billet furnace with hot top technology by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Billet casting section - continuous casting billet furnace with hot top technology by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 

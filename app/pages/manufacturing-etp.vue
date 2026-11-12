@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
+useSeo({
   title: 'Effluent Treatment Plant (ETP)',
-  meta: [{ name: 'description', content: 'Effluent treatment plant - environmentally conscious wastewater treatment ensuring no negative environmental impact by DHAKATHAI ALCOMAXX PLC.' }]
+  description: 'Effluent treatment plant - environmentally conscious wastewater treatment ensuring no negative environmental impact by DHAKATHAI ALCOMAXX PLC.'
 })
 </script>
 
