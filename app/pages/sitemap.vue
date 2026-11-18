@@ -84,7 +84,17 @@ const nodes: Node[] = [
     children: [
       { label: "Sales Network & Dealer's List", to: '/dealer-list' },
       { label: 'Enlisted Developers', to: '/enlisted-developer' },
-      { label: 'Factory', to: '/factory' },
+      { label: 'Factory', to: '/factory' }
+    ]
+  },
+  {
+    label: 'Resources & Legal',
+    to: '/resources',
+    num: '07',
+    children: [
+      { label: 'Resources', to: '/resources' },
+      { label: 'Disclaimer', to: '/disclaimer' },
+      { label: 'Privacy Policy', to: '/privacy-policy' },
       { label: 'Sitemap', to: '/sitemap' }
     ]
   }
@@ -208,8 +218,7 @@ function collapseAll() {
   cursor: pointer;
   transition: var(--transition);
 }
-.sm-ctrl:hover {
-  border-color: rgba(224, 134, 43, 0.45);
+.sm-ctrl:hover {   border-color: rgba(5, 166, 75, 0.45);
   color: var(--accent);
 }
 .sm-card {
@@ -271,11 +280,10 @@ function collapseAll() {
   height: 28px;
   border-radius: 50%;
   font-size: 16px;
-  color: var(--accent);
-  background: rgba(224, 134, 43, 0.1);
+  color: var(--accent);   background: rgba(5, 166, 75, 0.1);
   transition: var(--transition);
 }
-.sm-branch:hover .sm-caret { background: rgba(224, 134, 43, 0.18); }
+.sm-branch:hover .sm-caret { background: rgba(5, 166, 75, 0.18); }
 .sm-count {
   font-size: 0.72rem;
   font-weight: 700;

@@ -56,14 +56,14 @@ npm run generate
 npm run preview
 
 # Deploy to a target folder
-npm run deploy "D:\path\to\hosting"
+npm run deploy "path\to\hosting"
 ```
 
 Or use the batch wrappers:
 ```
 scripts\dev.bat
 scripts\build.bat
-scripts\deploy.bat "D:\path\to\hosting"
+scripts\deploy.bat "path\to\hosting"
 ```
 
 ### Deploy target
@@ -71,8 +71,8 @@ scripts\deploy.bat "D:\path\to\hosting"
 `scripts\deploy.bat` accepts an optional path argument; otherwise it reads the `DTL_DEPLOY_TARGET` environment variable:
 
 ```cmd
-scripts\deploy.bat "D:\path\to\hosting"
-setx DTL_DEPLOY_TARGET "D:\path\to\hosting"
+scripts\deploy.bat "path\to\hosting"
+setx DTL_DEPLOY_TARGET "path\to\hosting"
 scripts\deploy.bat
 ```
 

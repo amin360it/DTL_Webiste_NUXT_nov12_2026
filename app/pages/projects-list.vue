@@ -1,13 +1,33 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { ongoingProjects, projects2018, projects2016, type Project } from '~/data/projects'
+
 useSeo({
   title: 'Project List',
   description: 'Complete list of DHAKATHAI ALCOMAXX PLC projects - ongoing, 2018-2019 and 2016-2017 completed projects.'
 })
 
-const tab = ref('ongoing')
+const groups = [
+  { key: 'ongoing', label: 'Ongoing', note: 'Under construction', items: ongoingProjects },
+  { key: '1819', label: 'Completed 2018-2019', note: 'Handed over', items: projects2018 },
+  { key: '1617', label: 'Completed 2016-2017', note: 'Handed over', items: projects2016 }
+]
 
-const setTab = (name: string) => {
-  tab.value = name
+const tab = ref('ongoing')
+const query = ref('')
+
+const active = computed(() => groups.find((g) => g.key === tab.value) || groups[0])
+const total = computed(() => groups.reduce((sum, g) => sum + g.items.length, 0))
+
+const results = computed<Project[]>(() => {
+  const q = query.value.trim().toLowerCase()
+  if (!q) return active.value.items
+  return active.value.items.filter((p) => (p.name + ' ' + p.location).toLowerCase().includes(q))
+})
+
+function pick(key: string) {
+  tab.value = key
+  query.value = ''
 }
 </script>
 
@@ -17,245 +37,179 @@ const setTab = (name: string) => {
     <div class="container">
       <span class="kicker">Projects</span>
       <h1>Few List Of Projects</h1>
-      <p>From residential buildings to national infrastructure - hundreds of projects across Bangladesh.</p>
+      <p>From residential buildings to national infrastructure &mdash; {{ total }} projects across Bangladesh.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="tabs" data-tabs>
-        <button class="tab-btn" :class="{ active: tab === 'ongoing' }" @click="setTab('ongoing')">Ongoing Projects</button>
-        <button class="tab-btn" :class="{ active: tab === '1819' }" @click="setTab('1819')">Completed 2018-2019</button>
-        <button class="tab-btn" :class="{ active: tab === '1617' }" @click="setTab('1617')">Completed 2016-2017</button>
-      </div>
-
-      <div id="tab-ongoing" :class="`tab-panel ${tab === 'ongoing' ? 'active' : ''}`">
-        <div class="table-wrap">
-          <table class="data">
-            <thead><tr><th>#</th><th>Project</th><th>Location</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>BGMEA Complex</td><td>Sector 17, Uttara, Dhaka</td></tr>
-              <tr><td>2</td><td>Bank Asia HQ</td><td>Karwan Bazar, Dhaka</td></tr>
-              <tr><td>3</td><td>Romask Tower</td><td>Karwan Bazar, Dhaka</td></tr>
-              <tr><td>4</td><td>Navana Yusuf Infinity</td><td>Mohakhali C/A, Dhaka</td></tr>
-              <tr><td>5</td><td>Majedul Islam</td><td>Bashundhara, Dhaka</td></tr>
-              <tr><td>6</td><td>Sumon Ali</td><td>Banani, Dhaka</td></tr>
-              <tr><td>7</td><td>Kamruzzaman</td><td>Gazipur 27, Dhaka</td></tr>
-              <tr><td>8</td><td>Mr. Akter</td><td>Bashundhara, Dhaka</td></tr>
-              <tr><td>9</td><td>Mr. Ismile</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>10</td><td>Misbah Uddin</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>11</td><td>Motalib Residence</td><td>Razarbag, Dhaka</td></tr>
-              <tr><td>12</td><td>United Complex</td><td>Madani Avenue, Dhaka</td></tr>
-              <tr><td>13</td><td>Navana FH Solaris</td><td>65 Bijoynagar, Dhaka</td></tr>
-              <tr><td>14</td><td>Mr. Saiful Islam</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>15</td><td>Beximco Group</td><td>Dhaka</td></tr>
-              <tr><td>16</td><td>Kallol</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>17</td><td>NDE</td><td>Gulshan-1, Dhaka</td></tr>
-              <tr><td>18</td><td>Grand Muslim</td><td>Agrabad, Chittagong</td></tr>
-              <tr><td>19</td><td>Mr. Ashiq</td><td>Gulshan-1, Dhaka</td></tr>
-              <tr><td>20</td><td>Mr. Nuruzzaman Mridha</td><td>Tongi, Gazipur</td></tr>
-              <tr><td>21</td><td>Joytun Developers</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>22</td><td>Data Edge</td><td>Baridhara, J Block, Dhaka</td></tr>
-              <tr><td>23</td><td>United Property Solutions Ltd. (Chairman House)</td><td>Jamalpur</td></tr>
-            </tbody>
-          </table>
+      <div class="pl-stats">
+        <div class="pl-stat" v-for="g in groups" :key="g.key">
+          <strong>{{ g.items.length }}</strong>
+          <span>{{ g.label }}</span>
+        </div>
+        <div class="pl-stat pl-stat--accent">
+          <strong>{{ total }}</strong>
+          <span>Total projects listed</span>
         </div>
       </div>
 
-      <div id="tab-1819" :class="`tab-panel ${tab === '1819' ? 'active' : ''}`">
-        <div class="table-wrap">
-          <table class="data">
-            <thead><tr><th>#</th><th>Project</th><th>Location</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Radisson Bay View Hotel</td><td>Chittagong</td></tr>
-              <tr><td>2</td><td>Krishibid Group</td><td>Dhaka</td></tr>
-              <tr><td>3</td><td>Bay Eastwood</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>4</td><td>Bay North Park</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>5</td><td>Uttah Group</td><td>Gulshan</td></tr>
-              <tr><td>6</td><td>Architect Janus Gulshan Project</td><td>Dhaka</td></tr>
-              <tr><td>7</td><td>United Power Generation</td><td>Dhaka</td></tr>
-              <tr><td>8</td><td>Residence of MP Abul Hasan</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>9</td><td>Akhi Enterprises</td><td>Dhaka</td></tr>
-              <tr><td>10</td><td>Arman Engineering</td><td>Dhaka</td></tr>
-              <tr><td>11</td><td>Residence of MP Aslamul Haq</td><td>Dhaka</td></tr>
-              <tr><td>12</td><td>Interlink</td><td>-</td></tr>
-              <tr><td>13</td><td>Neo Formation Architects</td><td>Dhaka</td></tr>
-              <tr><td>14</td><td>Parasol Energy Ltd.</td><td>Dhaka</td></tr>
-              <tr><td>15</td><td>Winpen Limited</td><td>Dhaka</td></tr>
-              <tr><td>16</td><td>German Embassy</td><td>Dhaka</td></tr>
-              <tr><td>17</td><td>American International School</td><td>Dhaka</td></tr>
-              <tr><td>18</td><td>French School</td><td>Dhaka</td></tr>
-              <tr><td>19</td><td>International Club</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>20</td><td>United Group, Asset Developments &amp; Holdings Limited</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>21</td><td>K. Alam Chowdhury</td><td>Dhaka</td></tr>
-              <tr><td>22</td><td>Group Captain Abu Zafar Choudhury</td><td>Photickchori, Chittagong</td></tr>
-              <tr><td>23</td><td>Waseem Yunus</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>24</td><td>Mr. Ahsan</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>25</td><td>Dr. Md. Shawkat Ali</td><td>Mymensingh Road, Dhaka</td></tr>
-              <tr><td>26</td><td>GMG Group</td><td>-</td></tr>
-              <tr><td>27</td><td>Sony Rangs</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>28</td><td>SADMA Fashion Wear Limited</td><td>Dhaka</td></tr>
-              <tr><td>29</td><td>Masrur Rahman</td><td>Cantonment, Dhaka</td></tr>
-              <tr><td>30</td><td>Shanta</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>31</td><td>Ronny Chowdhury</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>32</td><td>ABC Park House</td><td>Savar, Dhaka</td></tr>
-              <tr><td>33</td><td>Mrs. Mono</td><td>Dhaka</td></tr>
-              <tr><td>34</td><td>Ispahani Monzil</td><td>Chittagong</td></tr>
-              <tr><td>35</td><td>NASSA Noor Rosilanda</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>36</td><td>Galaxy Hotel</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>37</td><td>Dr. Nurun Nahar (HAMKO Corporation)</td><td>Dhaka</td></tr>
-              <tr><td>38</td><td>Dr. Nargis Akter</td><td>West Panthapath, Dhaka</td></tr>
-              <tr><td>39</td><td>Mr. Abdul Wadud</td><td>Bakshi Bazar, Dhaka</td></tr>
-              <tr><td>40</td><td>British Council</td><td>Fuller Road, Dhaka</td></tr>
-              <tr><td>41</td><td>The Merchants Ltd</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>42</td><td>Diseno Den</td><td>Mugda Para, Dhaka</td></tr>
-              <tr><td>43</td><td>Manama</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>44</td><td>Innovative Holdings Ltd.</td><td>Banani, Dhaka</td></tr>
-              <tr><td>45</td><td>Mr. Ahsan Ali</td><td>Nikunja, Dhaka</td></tr>
-              <tr><td>46</td><td>GMG</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>47</td><td>Mrs. Mono</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>48</td><td>Dr. Mizanur Rahman Arif</td><td>Mirpur DOHS, Dhaka</td></tr>
-              <tr><td>49</td><td>Mr. Nazrul Islam</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>50</td><td>Mr. Zaman</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>51</td><td>Mr. Tanjibul Alam</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>52</td><td>NASSA Salam Rosevally</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>53</td><td>Hall-24</td><td>Chittagong</td></tr>
-              <tr><td>54</td><td>Piruj Ali</td><td>Gazipur, Dhaka</td></tr>
-              <tr><td>55</td><td>Concord</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>56</td><td>Concord Shamad Court</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>57</td><td>Raymond</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>58</td><td>German Development Cooperation</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>59</td><td>Sketch</td><td>Moghbazar, Dhaka</td></tr>
-              <tr><td>60</td><td>VF Asia Ltd.</td><td>Gazipur, Dhaka</td></tr>
-              <tr><td>61</td><td>AISD</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>62</td><td>Modiste</td><td>EPZ, Chittagong</td></tr>
-              <tr><td>63</td><td>Actor Alamgir House</td><td>Mohammadpur, Dhaka</td></tr>
-              <tr><td>64</td><td>Aruna Pally Project</td><td>Savar, Dhaka</td></tr>
-              <tr><td>65</td><td>British Council</td><td>Fuller Road, Dhaka</td></tr>
-              <tr><td>66</td><td>Elegants House</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>67</td><td>Ananta House</td><td>Barishara, Dhaka</td></tr>
-              <tr><td>68</td><td>Abdul Nini Sattar (GMG Air Lines)</td><td>Banani, Dhaka</td></tr>
-              <tr><td>69</td><td>Navy House</td><td>Army Cantonment, Dhaka</td></tr>
-              <tr><td>70</td><td>Beximco</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>71</td><td>Galaxy</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>72</td><td>Elite Technology</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>73</td><td>Rasel Villa</td><td>Chittagong</td></tr>
-              <tr><td>74</td><td>Hazi Israfil Ashraf</td><td>Kuril, Dhaka</td></tr>
-              <tr><td>75</td><td>Sun Valley Rubi</td><td>Chittagong</td></tr>
-              <tr><td>76</td><td>Banoful House</td><td>Chittagong</td></tr>
-              <tr><td>77</td><td>Bay Kinara</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>78</td><td>Youngone Jetty &amp; Dormitory Building</td><td>KEPZ, Chittagong</td></tr>
-              <tr><td>79</td><td>Innstar</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>80</td><td>Arju Rahman</td><td>South Nikunja, Dhaka</td></tr>
-              <tr><td>81</td><td>Artech</td><td>Nikunjo, Dhaka</td></tr>
-              <tr><td>82</td><td>Asif Iqbal</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>83</td><td>Bay's Amarantha</td><td>Banani, Dhaka</td></tr>
-              <tr><td>84</td><td>Golf View</td><td>Banani, Dhaka</td></tr>
-              <tr><td>85</td><td>Navana Chanelle De Zohra</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>86</td><td>Nazim</td><td>Mirpur, Dhaka</td></tr>
-              <tr><td>87</td><td>Reflection Holdings</td><td>Gulshan-1, Dhaka</td></tr>
-              <tr><td>88</td><td>Sabol</td><td>Mirpur, Dhaka</td></tr>
-              <tr><td>89</td><td>Golf Court</td><td>Banani DOHS, Dhaka</td></tr>
-              <tr><td>90</td><td>Bangla CAT</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>91</td><td>Mr. Monirul Haque</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>92</td><td>Indesor</td><td>Gazipur</td></tr>
-              <tr><td>93</td><td>Dr. MA Hakim</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>94</td><td>Navana White Stone</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>95</td><td>Mr. Selim Rashid</td><td>Baridhara DOHS, Dhaka</td></tr>
-              <tr><td>96</td><td>Islam Garments</td><td>Gazipur</td></tr>
-              <tr><td>97</td><td>Laila Style (Factory Building)</td><td>Gazipur</td></tr>
-              <tr><td>98</td><td>Best Holdings</td><td>Noakhali</td></tr>
-              <tr><td>99</td><td>P2P 360</td><td>Chittagong</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="tabs" role="tablist">
+        <button
+          v-for="g in groups"
+          :key="g.key"
+          class="tab-btn"
+          :class="{ active: tab === g.key }"
+          role="tab"
+          :aria-selected="tab === g.key"
+          @click="pick(g.key)"
+        >
+          {{ g.label }} <span class="pl-count">{{ g.items.length }}</span>
+        </button>
       </div>
 
-      <div id="tab-1617" :class="`tab-panel ${tab === '1617' ? 'active' : ''}`">
-        <div class="table-wrap">
-          <table class="data">
-            <thead><tr><th>#</th><th>Project</th><th>Location</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Banoful House</td><td>Chittagong</td></tr>
-              <tr><td>2</td><td>BSM</td><td>Chittagong</td></tr>
-              <tr><td>3</td><td>Mr. Munir Merali</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>4</td><td>Mrs. Saleha Khanam</td><td>Mohakhali DOHS, Dhaka</td></tr>
-              <tr><td>5</td><td>Boithok Bazar</td><td>Chittagong</td></tr>
-              <tr><td>6</td><td>Sanmar</td><td>Gazipur, Dhaka</td></tr>
-              <tr><td>7</td><td>Mr. Zia</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>8</td><td>Mr. Zakaria</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>9</td><td>Mr. Kafil</td><td>Bashundhara, Dhaka</td></tr>
-              <tr><td>10</td><td>Kitty Group</td><td>Ashulia, Dhaka</td></tr>
-              <tr><td>11</td><td>Mr. Nazrul Islam</td><td>Mogbazar Railgate, Dhaka</td></tr>
-              <tr><td>12</td><td>Mr. Babul</td><td>Banani Old DOHS, Dhaka</td></tr>
-              <tr><td>13</td><td>Finlay Sabha Project</td><td>Chittagong</td></tr>
-              <tr><td>14</td><td>Abdul Nini Sattar (GMG Air Lines)</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>15</td><td>Abdul Salm Sattar (GMG Air Lines)</td><td>Banani, Dhaka</td></tr>
-              <tr><td>16</td><td>Mr. Apu (Artisun)</td><td>Banani, Dhaka</td></tr>
-              <tr><td>17</td><td>Pollobi Project</td><td>Pollobi, Dhaka</td></tr>
-              <tr><td>18</td><td>Rahmath Group</td><td>Dhaka</td></tr>
-              <tr><td>19</td><td>Finlay Zara Project</td><td>Chittagong</td></tr>
-              <tr><td>20</td><td>Navana Azalia</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>21</td><td>Alpha Holdings</td><td>Mohakhali DOHS, Dhaka</td></tr>
-              <tr><td>22</td><td>Alliance</td><td>Old DOHS, Dhaka</td></tr>
-              <tr><td>23</td><td>Navana Kisholoy</td><td>Gulshan-1, Dhaka</td></tr>
-              <tr><td>24</td><td>Mr. Arshed Jamal (Thusuka)</td><td>Nikunjo, Dhaka</td></tr>
-              <tr><td>25</td><td>Ananta Garments</td><td>Narayangonj, Dhaka</td></tr>
-              <tr><td>26</td><td>Prim Hospital</td><td>Dhaka</td></tr>
-              <tr><td>27</td><td>Sir John Wilson School</td><td>Shattarkul, Middle Badda, Dhaka</td></tr>
-              <tr><td>28</td><td>Mr. Bashir Project</td><td>Chittagong</td></tr>
-              <tr><td>29</td><td>SAPL Munshigonj Project</td><td>Munshigonj</td></tr>
-              <tr><td>30</td><td>Confidence Tower</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>31</td><td>United Consultant</td><td>Mohakhali DOHS, Dhaka</td></tr>
-              <tr><td>32</td><td>Mr. Shaheen</td><td>Narayanganj</td></tr>
-              <tr><td>33</td><td>Mr. Amin Ahmed</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>34</td><td>Mr. Zafar Iqbal</td><td>Nikunjo, Dhaka</td></tr>
-              <tr><td>35</td><td>AR Properties (Channel I) Project</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>36</td><td>Everret House</td><td>Chittagong</td></tr>
-              <tr><td>37</td><td>Bangla CAT</td><td>Dhaka</td></tr>
-              <tr><td>38</td><td>Renata Ltd.</td><td>Gazipur</td></tr>
-              <tr><td>39</td><td>Mr. Gulam Hossain</td><td>Hatirjheel, Dhaka</td></tr>
-              <tr><td>40</td><td>Hasan Residence</td><td>Dhaka</td></tr>
-              <tr><td>41</td><td>Mr. Aziz</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>42</td><td>Imran Hosain</td><td>Dhaka</td></tr>
-              <tr><td>43</td><td>Rupayon Signature</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>44</td><td>Bangladesh Computer Council</td><td>Agargaon, Dhaka</td></tr>
-              <tr><td>45</td><td>Rangs Atlas</td><td>Chittagong</td></tr>
-              <tr><td>46</td><td>Gulshan Pride</td><td>Gulshan, Dhaka</td></tr>
-              <tr><td>47</td><td>ABA Group</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>48</td><td>Mr. Nazir Hossain</td><td>Dhaka</td></tr>
-              <tr><td>49</td><td>Abiana</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>50</td><td>Adnan Residence</td><td>Bashundhara, Dhaka</td></tr>
-              <tr><td>51</td><td>Alam Residence</td><td>Chittagong</td></tr>
-              <tr><td>52</td><td>Annontex Residence</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>53</td><td>Architect Shaikha</td><td>Bangla Motor, Dhaka</td></tr>
-              <tr><td>54</td><td>Jamil Residence</td><td>Chittagong</td></tr>
-              <tr><td>55</td><td>Kamrul Islam</td><td>Dhaka</td></tr>
-              <tr><td>56</td><td>Keya Group</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>57</td><td>MP Moinul Islam Khan Shanto</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>58</td><td>Mrs. Luna</td><td>Mirpur DOHS, Dhaka</td></tr>
-              <tr><td>59</td><td>Mrs. Marufa</td><td>Mirpur DOHS, Dhaka</td></tr>
-              <tr><td>60</td><td>Navana Sharif</td><td>Gulshan-2, Dhaka</td></tr>
-              <tr><td>61</td><td>Nayeem Sayed</td><td>Nikunjo, Dhaka</td></tr>
-              <tr><td>62</td><td>Noor</td><td>Senbag, Noakhali</td></tr>
-              <tr><td>63</td><td>Palmal Group</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>64</td><td>Razu Residence</td><td>Uttara, Dhaka</td></tr>
-              <tr><td>65</td><td>Rising Group</td><td>Manikgonj, Dhaka</td></tr>
-              <tr><td>66</td><td>Ventura Verona</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>67</td><td>Starling Group</td><td>Dhaka</td></tr>
-              <tr><td>68</td><td>Zakir Musharaf Skyline</td><td>Dhaka</td></tr>
-              <tr><td>69</td><td>Sajjad Hossain</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>70</td><td>Shanta Spring</td><td>Dhanmondi, Dhaka</td></tr>
-              <tr><td>71</td><td>Babylon</td><td>Nikunjo, Dhaka</td></tr>
-              <tr><td>72</td><td>Islam Garments</td><td>Baridhara, Dhaka</td></tr>
-              <tr><td>73</td><td>Jabed Akram</td><td>Dhaka</td></tr>
-              <tr><td>74</td><td>Fraulen Fashion</td><td>Gazipur</td></tr>
-              <tr><td>75</td><td>PSO</td><td>Shahid Belayat Road, Dhaka Cantonment</td></tr>
-              <tr><td>76</td><td>Manarat International School &amp; College</td><td>Dhaka</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="pl-toolbar">
+        <label class="pl-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input v-model="query" type="search" placeholder="Search project name or location..." aria-label="Search projects">
+        </label>
+        <p class="pl-summary">
+          <strong>{{ results.length }}</strong> of {{ active.items.length }} {{ active.label.toLowerCase() }} projects
+          <span class="pl-note">{{ active.note }}</span>
+        </p>
       </div>
+
+      <div v-if="results.length" class="table-wrap pl-table">
+        <table class="data">
+          <thead>
+            <tr><th>#</th><th>Project</th><th>Location</th></tr>
+          </thead>
+          <tbody>
+            <tr v-for="(p, i) in results" :key="p.name + i">
+              <td>{{ i + 1 }}</td>
+              <td class="pl-name">{{ p.name }}</td>
+              <td><span class="pl-place">{{ p.location }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p v-else class="pl-empty">No projects match &ldquo;{{ query }}&rdquo; in {{ active.label.toLowerCase() }}.</p>
+
+      <p class="pl-cta">
+        Want to see these projects? <NuxtLink to="/projects-image">Browse the image gallery</NuxtLink> or
+        <NuxtLink to="/contact">talk to our team</NuxtLink>.
+      </p>
     </div>
   </section>
 </template>
+
+<style scoped>
+.pl-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.pl-stat {
+  background: var(--white);
+  border: 1px solid var(--light-2);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+.pl-stat strong { font-family: var(--font-head); font-size: 1.7rem; color: var(--primary); line-height: 1.1; }
+.pl-stat span { font-size: 0.82rem; color: var(--text-light); }
+.pl-stat--accent { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-color: transparent; }
+.pl-stat--accent strong { color: var(--accent-light); }
+.pl-stat--accent span { color: #c3cfdd; }
+
+.pl-count {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--light);
+  color: var(--text-light);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.tab-btn.active .pl-count { background: rgba(0, 0, 0, 0.24); color: #ffffff; }
+
+.pl-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.pl-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  height: 46px;
+  min-width: 300px;
+  flex: 0 1 420px;
+  border: 1px solid var(--light-2);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text-light);
+}
+.pl-search svg { width: 17px; height: 17px; flex: 0 0 17px; }
+.pl-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  outline: none;
+}
+.pl-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(5, 166, 75, 0.12); }
+.pl-summary { font-size: 0.88rem; color: var(--text-light); }
+.pl-summary strong { color: var(--primary); }
+.pl-note {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;   background: rgba(5, 166, 75, 0.12);
+  color: var(--accent-dark);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.pl-table table.data tbody tr:hover { background: var(--light); }
+.pl-name { font-weight: 600; color: var(--text); }
+.pl-place {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: var(--light);
+  border: 1px solid var(--light-2);
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+.pl-empty {
+  padding: 46px 20px;
+  text-align: center;
+  border: 1px dashed var(--light-2);
+  border-radius: var(--radius);
+  color: var(--text-light);
+}
+.pl-cta { margin-top: 22px; font-size: 0.9rem; color: var(--text-light); }
+.pl-cta a { color: var(--accent-dark); font-weight: 700; }
+.pl-cta a:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .pl-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .pl-stats { grid-template-columns: 1fr; gap: 10px; }
+  .pl-search { min-width: 0; flex: 1 1 100%; }
+  .pl-toolbar { flex-direction: column; align-items: stretch; }
+}
+</style>

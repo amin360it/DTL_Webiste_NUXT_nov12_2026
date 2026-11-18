@@ -130,3 +130,9 @@ function playVideoFromEvent(e: Event) {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+}
+</style>

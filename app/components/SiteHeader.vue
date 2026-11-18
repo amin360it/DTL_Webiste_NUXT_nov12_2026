@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useTheme } from '~/composables/useTheme'
 
 const route = useRoute()
+const { init: initTheme, toggle: toggleTheme } = useTheme()
 const isOpen = ref(false)
 const openSection = ref('')
 const desktopDd = ref('')
 const scrolled = ref(false)
 
-const pageName = computed(() => (route.path === '/' ? 'index.html' : route.path.replace(/^\//, '') + '.html'))
+const currentPath = computed(() => route.path.replace(/\/+$/, '') || '/')
+const pageName = computed(() => (currentPath.value === '/' ? 'index.html' : currentPath.value.replace(/^\//, '') + '.html'))
 
 const sectionPaths: Record<string, string[]> = {
   products: ['products-architectural', 'products-industrial', 'products-furniture', 'products-hardware', 'products-electrical', 'products-others', 'online-catalogue', 'catalogue'],
@@ -18,12 +21,12 @@ const sectionPaths: Record<string, string[]> = {
 }
 
 function isActive(to: string) {
-  if (to === '/') return route.path === '/'
-  return route.path === to
+  if (to === '/') return currentPath.value === '/'
+  return currentPath.value === to
 }
 
 function sectionHasPage(section: string) {
-  return (sectionPaths[section] || []).some((p) => pageName.value === p + '.html')
+  return pageName.value === section + '.html' || (sectionPaths[section] || []).some((p) => pageName.value === p + '.html')
 }
 
 watch(pageName, () => {
@@ -38,11 +41,9 @@ function onMenuCapture(e: MouseEvent) {
   const el = (e.target as HTMLElement | null)?.closest('[data-accordion]') as HTMLElement | null
   if (!el) return
   const name = el.getAttribute('data-accordion') || ''
-  if (openSection.value !== name) {
-    e.preventDefault()
-    e.stopPropagation()
-    openSection.value = name
-  }
+  e.preventDefault()
+  e.stopPropagation()
+  openSection.value = openSection.value === name ? '' : name
 }
 
 function openMenu() {
@@ -81,7 +82,6 @@ function clearNavDd() {
 
 watch(() => route.fullPath, () => {
   closeMenu()
-  openSection.value = ''
   desktopDd.value = ''
 })
 
@@ -103,6 +103,7 @@ function onScroll() {
 }
 
 onMounted(() => {
+  initTheme()
   window.addEventListener('keydown', onKeydown)
   window.addEventListener('resize', onResize)
   window.addEventListener('scroll', onScroll)
@@ -185,7 +186,7 @@ onBeforeUnmount(() => {
               <NuxtLink to="/products-hardware" @click="closeMenus">Hardware &amp; Bazaar</NuxtLink>
               <NuxtLink to="/products-electrical" @click="closeMenus">Electrical</NuxtLink>
               <NuxtLink to="/products-others" @click="closeMenus">Automobile &amp; Railway</NuxtLink>
-              <NuxtLink to="/online-catalogue" @click="closeMenus">Online Catalogue (Browse All Profiles)</NuxtLink>
+              <NuxtLink to="/online-catalogue" @click="closeMenus">View All Profiles</NuxtLink>
               <NuxtLink to="/catalogue" @click="closeMenus">Catalogue &amp; Downloads</NuxtLink>
             </div></div>
           </li>
@@ -272,6 +273,10 @@ onBeforeUnmount(() => {
             </div>
           </li>
         </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" @click="toggleTheme">
+          <svg class="t-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="t-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
       </div>
     </header>
   </div>
@@ -280,11 +285,52 @@ onBeforeUnmount(() => {
 <style scoped>
 .site-chrome { display: contents; }
 
-@media (min-width: 821px) and (max-width: 1080px) {
-  .brand-text { display: none; }
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(11, 31, 58, 0.15);
+  background: transparent;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: var(--transition);
+}
+.theme-toggle:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-1px); }
+.theme-toggle svg { width: 19px; height: 19px; }
+.theme-toggle .t-sun { display: none; }
+
+.brand img,
+.drawer-brand img {
+  background: #ffffff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 820px) {
+  .nav { justify-content: flex-start; }
+  .brand { margin-right: auto; }
+  .theme-toggle { width: 34px; height: 34px; flex: 0 0 34px; order: 1; margin: 0 10px 0 0; }
+  .theme-toggle svg { width: 17px; height: 17px; }
+  .nav-toggle { order: 2; }
 }
 
 @media (min-width: 821px) and (max-width: 1200px) {
+  .brand-text { display: none; }
+}
+
+@media (min-width: 821px) {
+  .nav-menu > li > a { white-space: nowrap; }
+  .nav-cta { white-space: nowrap; }
+}
+
+@media (min-width: 821px) and (max-width: 1280px) {
+  .header .nav { padding-top: 5px; padding-bottom: 5px; }
   .nav-menu { gap: 2px; }
   .nav-menu > li > a { padding: 11px 9px; font-size: 0.83rem; }
   .nav-menu > li > a::after { left: 9px; right: 9px; }
@@ -292,17 +338,86 @@ onBeforeUnmount(() => {
   .dd-caret { margin-left: 3px; }
 }
 
+@media (min-width: 821px) and (max-width: 900px) {
+  .nav-menu { gap: 0; }
+  .nav-menu > li > a { padding: 11px 8px; font-size: 0.78rem; }
+  .nav-menu > li > a::after { left: 8px; right: 8px; }
+  .nav-cta { padding: 9px 12px !important; margin-left: 2px; font-size: 0.78rem !important; }
+  .dd-caret { margin-left: 2px; }
+}
+
+@media (min-width: 1281px) and (max-width: 1400px) {
+  .nav-menu { gap: 2px; }
+  .nav-menu > li > a { padding: 11px 12px; font-size: 0.87rem; }
+  .nav-menu > li > a::after { left: 12px; right: 12px; }
+  .nav-cta { padding: 10px 18px !important; margin-left: 4px; }
+}
+
+@media (min-width: 821px) and (max-width: 1280px) {
+  .topbar { font-size: 0.78rem; }
+  .topbar-left { gap: 14px; }
+  .topbar-right { gap: 6px; }
+  .topbar-right a { padding: 6px 8px; }
+}
+
+@media (min-width: 821px) and (max-width: 1000px) {
+  .topbar { font-size: 0.66rem; }
+  .topbar-left { gap: 10px; }
+  .topbar-right { gap: 2px; }
+  .topbar-right a { padding: 5px 5px; }
+}
+
+@media (max-width: 820px) {
+  .topbar-right { display: none; }
+  .topbar .container { gap: 6px; }
+  .topbar-left { gap: 14px; }
+}
+
+@media (max-width: 430px) {
+  .topbar-left { gap: 8px; justify-content: space-between; width: 100%; }
+  .topbar-left span,
+  .topbar-left a { font-size: 0.72rem; }
+  .header .nav { padding-left: 16px; padding-right: 16px; }
+}
+
 @media (max-width: 820px) {
   .nav-menu { max-height: 100dvh; }
-  .drawer-head { gap: 8px; }
-  .drawer-brand { flex: 1 1 auto; min-width: 0; }
-  .drawer-brand span { flex: 1 1 auto; min-width: 0; }
-  .drawer-brand strong { font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .drawer-brand small { font-size: 0.54rem; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .nav-menu::-webkit-scrollbar { width: 5px; }
+  .nav-menu::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.22); border-radius: 99px; }
+  .nav-menu::-webkit-scrollbar-track { background: transparent; }
+  .nav-menu > li.drawer-head {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+  .drawer-head {
+    gap: 8px;
+    background: #0a1b30;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .drawer-brand { flex: 1 1 auto; min-width: 0; gap: 0; }
+  .drawer-brand span { display: none; }
+  .drawer-brand img { height: 36px; }
   .drawer-close { width: 34px; height: 34px; font-size: 1.25rem; }
-  .nav-menu .dropdown { position: static; transform: none; }
+  .nav-toggle {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    border-radius: 10px;
+  }
+  .nav-toggle span { margin: 0 0 5px; width: 24px; }
+  .nav-toggle span:last-child { margin-bottom: 0; }
+  .nav-menu .dropdown { position: static; transform: none; padding: 0 0 0 14px; border-left: 1px solid rgba(255, 255, 255, 0.09); }
+  .nav-menu .has-dd > .dropdown { transform: none; }
+  .nav-menu .dropdown .dd-title { padding-left: 0; }
+  .nav-menu .dropdown a { padding-left: 10px; }
+  .nav-menu .dropdown a:hover { padding-left: 13px; }
+  .nav-menu .has-dd:not(.open) .dropdown .dd-inner { padding-top: 0; padding-bottom: 0; }
   .nav-menu .has-dd:not(.open) .dropdown { visibility: hidden; }
   .nav-menu .has-dd.open .dropdown { visibility: visible; }
+  .nav-menu .has-dd.open > a .dd-caret { transform: rotate(225deg) translateY(-1px); }
   .nav-toggle.open { visibility: hidden; }
 }
 </style>

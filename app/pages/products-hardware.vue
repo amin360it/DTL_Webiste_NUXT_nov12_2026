@@ -34,36 +34,47 @@ useSeo({
       </div>
       <div class="grid grid-4">
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Bazar Section</h3><p>Market construction sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/45-bazar-section.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Round &amp; Corrugated Pipe</h3><p>Round &amp; corrugated pipes.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/44-round---corrugated-pipe.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Ceiling Tee</h3><p>Ceiling grid systems.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/55-t-section.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Tower Bolt</h3><p>Security bolt sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/56-tower-bolt.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Angles</h3><p>Equal &amp; unequal angles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/21-angles.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Unequal Angles</h3><p>Unequal angle sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/21-angles.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Unequal U&rsquo;s</h3><p>Unequal U channels.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/22-u-channel.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>I Beam</h3><p>I beam structural sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/23-box.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>E Channels</h3><p>E channel sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/22-u-channel.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Showcase</h3><p>Showcase display profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/45-bazar-section.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>U&rsquo;s</h3><p>Standard U channels.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/22-u-channel.pdf" target="_blank">Drawing</a></div>
         </div>
       </div>
@@ -76,3 +87,17 @@ useSeo({
     intro="Bazaar fittings, tower bolts, handles, locks and connectors."
   />
 </template>
+
+<style scoped>
+.section .grid .card { display: flex; flex-direction: column; }
+.section .grid .card-body { display: flex; flex-direction: column; flex: 1; }
+.section .grid .card-body h3 { min-height: 2.3em; }
+.section .grid .card-body p { min-height: 3.3em; }
+.section .grid .card-body .btn { margin-top: auto; }
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+</style>

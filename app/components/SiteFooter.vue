@@ -98,9 +98,9 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-links">
-          <NuxtLink to="/">Resources</NuxtLink> |
-          <NuxtLink to="/">Disclaimer</NuxtLink> |
-          <NuxtLink to="/">Privacy Policy</NuxtLink> |
+          <NuxtLink to="/resources">Resources</NuxtLink> |
+          <NuxtLink to="/disclaimer">Disclaimer</NuxtLink> |
+          <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink> |
           <NuxtLink to="/sitemap">Sitemap</NuxtLink>
         </div>
         <div class="footer-copy">
@@ -111,3 +111,12 @@
     </div>
   </footer>
 </template>
+
+<style scoped>
+.footer-brand img {
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+</style>

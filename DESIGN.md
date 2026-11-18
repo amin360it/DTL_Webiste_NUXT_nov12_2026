@@ -19,31 +19,30 @@ Files this guide describes:
 
 ## 1. COLOUR SCHEMA
 
-All colours are CSS custom properties declared once in `:root` (`main.css` lines 3-27).
-Never hard-code a hex value if a token covers it.
+All colours are CSS custom properties declared once in `:root` (`main.css` lines 3-27), then re-declared by `theme.css` (loaded after `main.css`) with the current brand palette. The table below is the **effective** palette; `main.css` keeps the original values so it stays a verbatim copy of the source stylesheet.
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| `--primary` | `#0b1f3a` | Deep navy. Headings, dark card text, page-hero background |
-| `--primary-dark` | `#071426` | Darkest navy. Topbar, footer, `.btn-dark`, `.section-primary`, overlays |
-| `--primary-light` | `#16325c` | Mid navy. Link colour, dark hover states |
-| `--accent` | `#e0862b` | Aluminium/amber brand accent. Kickers, icons, primary CTA gradient, hover colour |
-| `--accent-light` | `#f5b36b` | Light amber. Kicker dot, dark-background accent text, gradient highlight |
-| `--accent-dark` | `#b96a1a` | Deep amber. Gradient end stop of `.btn-primary` |
-| `--silver` | `#c8ced6` | Metal grey. Muted bullets, small labels |
-| `--light` | `#f4f6f9` | Section tint (`.section-light`), `.btn-light` |
-| `--light-2` | `#e9edf3` | Borders, dividers, table lines |
-| `--text` | `#1f2a39` | Body copy on light backgrounds |
-| `--text-light` | `#64748b` | Secondary copy, captions, `/text-light-c` |
-| `--white` | `#ffffff` | Cards, page background |
+| `--primary` | `#0d0d0d` | Near-black. Headings, dark card text, page-hero background |
+| `--primary-dark` | `#0d0d0d` | Near-black. Topbar, footer, `.btn-dark`, `.section-primary`, overlays |
+| `--primary-light` | `#404040` | Dark grey. Link colour, dark hover states |
+| `--accent` | `#05a64b` | Brand green. Kickers, icons, primary CTA gradient, hover colour |
+| `--accent-light` | `#05a64b` (`#2fd47f` in dark) | Kicker dot, dark-background accent text, gradient highlight |
+| `--accent-dark` | `#037334` | Deep green. Gradient end stop of `.btn-primary` |
+| `--silver` | `#cfcfcf` | Light grey. Muted bullets, small labels |
+| `--light` | `#f2f2f2` | Section tint (`.section-light`), `.btn-light`, page background |
+| `--light-2` | `#e6e6e6` | Borders, dividers, table lines |
+| `--text` | `#404040` | Body copy on light backgrounds |
+| `--text-light` | `#5c5c5c` | Secondary copy, captions, `/text-light-c` |
+| `--white` | `#ffffff` | Cards |
 
 Semantic usage rules:
 
-- **Navy = structure, amber = action.** Navy backgrounds for hero/topbar/footer/primary cards; amber only for CTAs, kickers, icon chips and hover accents.
-- Amber on white fails WCAG AA for small text (~2.6:1). Use amber for large/bold text, icons, borders or on navy backgrounds — never for body paragraphs.
-- Body text is `--text`; anything secondary is `--text-light`. Do not introduce grey others than these.
-- Tinted amber surfaces use `rgba(224, 134, 43, 0.1)` to `0.18` (icon chips, hovers).
-- Hairline borders on white: `1px solid rgba(11, 31, 58, 0.08)`.
+- **Near-black = structure, green = action.** Near-black backgrounds for hero/topbar/footer/primary cards; green only for CTAs, kickers, icon chips and hover accents.
+- Green on white is borderline at small sizes (~3.2:1). Use it for large/bold text, icons, borders or on dark backgrounds — never for body paragraphs.
+- Body text is `--text`; anything secondary is `--text-light`. Do not introduce greys others than these.
+- Tinted green surfaces use `rgba(5, 166, 75, 0.1)` to `0.18` (icon chips, hovers).
+- Hairline borders on white: `1px solid rgba(13, 13, 13, 0.08)`.
 
 ---
 

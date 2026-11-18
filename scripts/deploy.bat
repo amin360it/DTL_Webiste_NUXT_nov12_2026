@@ -3,7 +3,7 @@ rem Deploy - production build (dist\) copied to nginx hosting root.
 rem
 rem Usage:
 rem   deploy.bat                          (deploys to publish\www\ by default)
-rem   deploy.bat "D:\path\to\hosting"     (explicit target)
+rem   deploy.bat "path\to\hosting"     (explicit target)
 cd /d "%~dp0.."
 
 set "DEST=%~1"
@@ -16,8 +16,8 @@ if "%DEST:~-1%"=="\" set "DEST=%DEST:~0,-1%"
 if not exist "%DEST%" mkdir "%DEST%"
 
 if "%DEST%"=="" (
-  echo Usage: deploy.bat "D:\path\to\hosting"
-  echo or set it permanently: setx DTL_DEPLOY_TARGET "D:\path\to\hosting"
+  echo Usage: deploy.bat "path\to\hosting"
+  echo or set it permanently: setx DTL_DEPLOY_TARGET "path\to\hosting"
   exit /b 1
 )
 

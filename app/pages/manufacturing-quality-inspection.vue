@@ -62,3 +62,10 @@ useSeo({
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .stats { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)) !important; }
+}
+</style>

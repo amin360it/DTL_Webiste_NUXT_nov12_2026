@@ -38,15 +38,19 @@ useSeo({
           <div class="card-body"><h3>Coaster</h3><p>Vehicle trim profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/53-automobile-section.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Decorative</h3><p>Decorative trims &amp; sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/65-others.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Railways</h3><p>Railway component profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/65-others.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Stair Nosing</h3><p>Stair edge sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/57-stair-nosing.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Customized Profile</h3><p>Custom-designed profiles per drawing.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/64-customized-profile.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
@@ -63,3 +67,17 @@ useSeo({
     intro="Sections for buses, coasters, railway and other vehicles."
   />
 </template>
+
+<style scoped>
+.section .grid .card { display: flex; flex-direction: column; }
+.section .grid .card-body { display: flex; flex-direction: column; flex: 1; }
+.section .grid .card-body h3 { min-height: 2.3em; }
+.section .grid .card-body p { min-height: 3.3em; }
+.section .grid .card-body .btn { margin-top: auto; }
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+</style>

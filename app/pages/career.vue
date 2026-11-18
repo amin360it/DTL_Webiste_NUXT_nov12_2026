@@ -320,3 +320,12 @@ useSeo({
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 768px) {
+  .job h3 { font-size: 1.2rem; }
+  .job h4 { font-size: 1rem; }
+  .job p { font-size: 0.85rem; }
+  .job ul li { font-size: 0.85rem; }
+}
+</style>

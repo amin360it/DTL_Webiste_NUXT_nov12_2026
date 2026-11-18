@@ -35,18 +35,23 @@ useSeo({
       </div>
       <div class="grid grid-4">
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>General Heatsink</h3><p>Thermal management profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/59-general-heatsink.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>LED Light Profiles</h3><p>LED housing &amp; diffuser channels.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/60-led-light-profiles.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Connector</h3><p>Electrical connector sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/61-connector.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Busbar, Flat Bar &amp; Rod</h3><p>Conductors &amp; distribution bars.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/62-busbar,-flat-bar---rod.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
+          <CardPlaceholder />
           <div class="card-body"><h3>Solar Structure Profiles</h3><p>Solar panel mounting structures.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/63-solar-structure-profiles.pdf" target="_blank">Drawing</a></div>
         </div>
         <div class="card">
@@ -63,3 +68,17 @@ useSeo({
     intro="LED, busbar, solar and heat-sink sections."
   />
 </template>
+
+<style scoped>
+.section .grid .card { display: flex; flex-direction: column; }
+.section .grid .card-body { display: flex; flex-direction: column; flex: 1; }
+.section .grid .card-body h3 { min-height: 2.3em; }
+.section .grid .card-body p { min-height: 3.3em; }
+.section .grid .card-body .btn { margin-top: auto; }
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+</style>

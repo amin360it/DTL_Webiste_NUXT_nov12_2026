@@ -75,7 +75,15 @@ function onHolderClick(p: CatalogProduct) {
                 loading="lazy"
                 @error="onImgError(p.id)"
               >
-              <div v-else class="cat-img-ph">{{ p.die }}</div>
+              <svg v-else class="cat-ph" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="154" height="154" rx="12" fill="var(--light)" stroke="var(--light-2)" stroke-width="1.5" stroke-dasharray="7 7" />
+                <g fill="none" stroke="var(--text-light)" stroke-opacity="0.6" stroke-width="2.5" stroke-linejoin="round">
+                  <rect x="52" y="38" width="56" height="11" rx="2" />
+                  <rect x="52" y="111" width="56" height="11" rx="2" />
+                  <rect x="74" y="49" width="12" height="62" />
+                </g>
+                <text x="80" y="142" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="1.5" fill="var(--text-light)">NO DRAWING</text>
+              </svg>
             </div>
             <div class="cat-card-body">
               <div class="cat-name">{{ p.name }}</div>
@@ -91,3 +99,11 @@ function onHolderClick(p: CatalogProduct) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.cat-col { height: 100%; }
+.cat-card { display: flex; flex-direction: column; height: 100%; }
+.cat-card-body { flex: 1 1 auto; }
+.cat-name { min-height: 2.6em; }
+.cat-ph { display: block; width: 100%; height: 100%; }
+</style>

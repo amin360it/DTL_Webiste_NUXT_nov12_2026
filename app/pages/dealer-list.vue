@@ -216,3 +216,19 @@ onBeforeUnmount(() => {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .dealer-table th, .dealer-table td {
+    padding: 8px 4px;
+    font-size: 0.78rem;
+  }
+  .dealer-table thead th { font-size: 0.85rem; }
+}
+@media (max-width: 620px) {
+  .dealer-table thead { display: none; }
+  .dealer-table tbody tr { display: block; margin-bottom: 12px; border-bottom: 1px solid var(--light-2); }
+  .dealer-table td { display: table-cell; width: auto; }
+  .dealer-table td:first-child { font-weight: bold; }
+}
+</style>

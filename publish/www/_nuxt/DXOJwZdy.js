@@ -1,1 +1,0 @@
-import{i as e}from"#entry";var t=e(`/assets/img/optim structural hollow sections5dc4.jpg`);export{t};

@@ -228,7 +228,7 @@ const emit = defineEmits<{ (e: 'division-click', slug: string): void }>()
 .bd-map { width: 100%; height: auto; display: block; background: var(--white); }
 .map-division { cursor: pointer; }
 .map-division path { transition: fill 0.25s ease, stroke 0.25s ease; }
-.map-division:hover { stroke: var(--accent); stroke-width: 3; filter: drop-shadow(0 4px 14px rgba(217,123,31,0.55)); }
+.map-division:hover { stroke: var(--accent); stroke-width: 3; filter: drop-shadow(0 4px 14px rgba(5, 166, 75,0.55)); }
 .map-division:hover path { fill: var(--accent) !important; }
 .map-division:hover path[fill="none"] { fill: none !important; }
 </style>

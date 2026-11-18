@@ -1,2 +1,5 @@
 User-Agent: *
-Disallow:
+Allow: /
+Disallow: /_nuxt/
+
+Sitemap: https://dhakathaibd.com/sitemap.xml

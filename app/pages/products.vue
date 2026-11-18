@@ -6,6 +6,14 @@ useSeo({
 </script>
 
 <template>
+<style scoped>
+@media (max-width: 1024px) {
+  .grid.grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .grid.grid-3 > * { padding: 0 10px; }
+}
+</style>
   <section class="page-hero">
     <div class="crumbs"><NuxtLink to="/">Home</NuxtLink> &raquo; Products</div>
     <div class="container">

@@ -1,0 +1,1 @@
+import{r as e}from"#entry";var t=e(`/assets/img/standard profiles pictureb1d6.jpg`);export{t};

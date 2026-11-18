@@ -42,6 +42,73 @@ const ipoDocs = [
   }
 ]
 
+const marketFacts = [
+  {
+    title: 'IPO Fund Utilization',
+    details: 'Tk19 crore for expansion, Tk5 crore working capital, Tk4.71 crore loan repayment, Tk1.28 crore IPO expenses',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15h3v4H7zM13 9h3v10h-3zM19 5h0"/><circle cx="19" cy="5" r="1"/></svg>'
+  },
+  {
+    title: 'Issue Method',
+    details: 'Fixed price method - 3 crore shares',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg>'
+  },
+  {
+    title: 'Issue Manager',
+    details: 'Prime Bank Investment Limited',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 12h2M13 12h2M9 16h2M13 16h2"/></svg>'
+  },
+  {
+    title: 'Market Share',
+    details: 'Approximately 20% - 22% of the local aluminium profiles market',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8.1 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>'
+  },
+  {
+    title: 'Market Demand',
+    details: 'Nearly 60,000 tonnes of aluminium profiles annually, growing 15% - 20% per year',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>'
+  },
+  {
+    title: 'Local Supply',
+    details: '10 local companies satisfy 90% of domestic demand; remaining 10% imported from China',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg>'
+  },
+  {
+    title: 'Industry Investment',
+    details: "Approximately Tk1,000 crore invested in Bangladesh's aluminium extrusion sector",
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 12h20"/></svg>'
+  },
+  {
+    title: 'Employment',
+    details: 'Approximately 30,000 people employed by the sector',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+  }
+]
+
+const docIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>'
+const chartIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>'
+const newsIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8v18l-18-8v-2z"/><path d="M7 12v7a2 2 0 0 0 4 0v-5"/></svg>'
+const boardIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 11h1m4 0h1M9 15h1m4 0h1"/></svg>'
+const calendarIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>'
+const moneyIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg>'
+const mailIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'
+
+const investorResources = [
+  { name: 'Prospectus', type: 'PDF', href: '/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf', icon: docIcon, file: true },
+  { name: 'IPO Application Result', type: 'Announcement', href: '/news', icon: newsIcon },
+  { name: 'IPO Fund Utilization', type: 'Highlights', href: '#glance', icon: chartIcon },
+  { name: 'Financial Report', type: 'Highlights', href: '#glance', icon: chartIcon },
+  { name: 'Price Sensitive Information', type: 'Announcement', href: '/news', icon: newsIcon },
+  { name: 'Corporate Governance Compliance', type: 'PDF', href: '/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf', icon: boardIcon, file: true },
+  { name: 'Directors Report', type: 'Announcement', href: '/news', icon: newsIcon },
+  { name: 'Annual Report', type: 'Announcement', href: '/news', icon: newsIcon },
+  { name: 'Details of Shareholding', type: 'PDF', href: '/assets/pdfs/list-of-share-distribution-to-the-employees-and-others.pdf', icon: docIcon, file: true },
+  { name: 'Extraordinary General Meeting', type: 'Announcement', href: '/news', icon: calendarIcon },
+  { name: 'Annual General Meeting', type: 'Announcement', href: '/news', icon: calendarIcon },
+  { name: 'Dividend', type: 'Announcement', href: '/news', icon: moneyIcon },
+  { name: 'Investors Contact', type: 'Contact', href: '/contact#investor-relations', icon: mailIcon }
+]
+
 const govGrid = ref<HTMLElement | null>(null)
 const govInView = ref(false)
 
@@ -113,10 +180,15 @@ onBeforeUnmount(() => {
       <span class="kicker">Investor Relations</span>
       <h1>Financial Insights &amp; Governance</h1>
       <p>Transparent corporate governance, IPO documents and investor information.</p>
+      <nav class="ir-jump" aria-label="Investor relations sections">
+        <a href="#ipo">IPO documents</a>
+        <a href="#glance">Financial highlights</a>
+        <a href="#governance">Governance</a>
+      </nav>
     </div>
   </section>
 
-  <section class="section">
+  <section id="ipo" class="section">
     <div class="container">
       <div class="section-head">
         <span class="kicker">IPO Documents</span>
@@ -170,20 +242,24 @@ onBeforeUnmount(() => {
           <span class="fin-bar" aria-hidden="true"></span>
         </article>
       </div>
-      <div class="table-wrap mt-10">
-        <table class="data">
-          <thead><tr><th>#</th><th>Parameter</th><th>Details</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>IPO Fund Utilization</td><td>Tk19 crore for expansion, Tk5 crore working capital, Tk4.71 crore loan repayment, Tk1.28 crore IPO expenses</td></tr>
-            <tr><td>2</td><td>Issue Method</td><td>Fixed price method - 3 crore shares</td></tr>
-            <tr><td>3</td><td>Issue Manager</td><td>Prime Bank Investment Limited</td></tr>
-            <tr><td>4</td><td>Market Share</td><td>Approximately 20% - 22% of the local aluminium profiles market</td></tr>
-            <tr><td>5</td><td>Market Demand</td><td>Nearly 60,000 tonnes of aluminium profiles annually, growing 15% - 20% per year</td></tr>
-            <tr><td>6</td><td>Local Supply</td><td>10 local companies satisfy 90% of domestic demand; remaining 10% imported from China</td></tr>
-            <tr><td>7</td><td>Industry Investment</td><td>Approximately Tk1,000 crore invested in Bangladesh's aluminium extrusion sector</td></tr>
-            <tr><td>8</td><td>Employment</td><td>Approximately 30,000 people employed by the sector</td></tr>
-          </tbody>
-        </table>
+      <div class="mf-head">
+        <h3>IPO &amp; market parameters</h3>
+        <span>{{ marketFacts.length }} parameters</span>
+      </div>
+      <div class="mf-grid" :class="{ 'is-in': finInView }">
+        <article
+          v-for="(f, i) in marketFacts"
+          :key="f.title"
+          class="mf-card"
+          :style="{ transitionDelay: (i * 70) + 'ms' }"
+        >
+          <div class="mf-icon" v-html="f.icon" />
+          <div class="mf-body">
+            <span class="mf-index">{{ String(i + 1).padStart(2, '0') }}</span>
+            <h3>{{ f.title }}</h3>
+            <p>{{ f.details }}</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -257,28 +333,41 @@ onBeforeUnmount(() => {
         </article>
       </div>
       <div class="gov-docs">
-        <span class="gov-docs-kicker">Resources</span>
-        <h3>Investor Documents</h3>
+        <div class="gov-docs-head">
+          <div>
+            <span class="gov-docs-kicker">Resources</span>
+            <h3>Investor Resources</h3>
+          </div>
+          <span class="gov-docs-count">{{ investorResources.length }} items</span>
+        </div>
         <ul>
-          <li>
-            <a href="/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf" target="_blank" rel="noopener">
-              <span class="gov-doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
-              <span class="gov-doc-name">Draft Prospectus of IPO<em>PDF</em></span>
+          <li v-for="r in investorResources" :key="r.name">
+            <a v-if="r.file" :href="r.href" target="_blank" rel="noopener">
+              <span class="gov-doc-icon" v-html="r.icon" />
+              <span class="gov-doc-name">{{ r.name }}<em>{{ r.type }}</em></span>
             </a>
-          </li>
-          <li>
-            <a href="/assets/pdfs/list-of-share-distribution-to-the-employees-and-others.pdf" target="_blank" rel="noopener">
-              <span class="gov-doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
-              <span class="gov-doc-name">List of Share Distribution<em>PDF</em></span>
-            </a>
-          </li>
-          <li>
-            <NuxtLink to="/board-of-directors">
-              <span class="gov-doc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
-              <span class="gov-doc-name">Board of Directors<em>Page</em></span>
+            <NuxtLink v-else :to="r.href">
+              <span class="gov-doc-icon" v-html="r.icon" />
+              <span class="gov-doc-name">{{ r.name }}<em>{{ r.type }}</em></span>
             </NuxtLink>
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ir-contact">
+    <div class="container">
+      <div class="ir-box">
+        <div>
+          <span class="kicker">Investor Contact</span>
+          <h2>Questions about the IPO or our filings?</h2>
+          <p>Reach us for shareholding, dividend and disclosure queries.</p>
+        </div>
+        <div class="ir-box-actions">
+          <a class="btn btn-primary" href="mailto:info@dhakathaibd.com">Email investors</a>
+          <a class="ir-tel" href="tel:+8801708814972">+88 01708-814972</a>
+        </div>
       </div>
     </div>
   </section>
@@ -314,16 +403,14 @@ onBeforeUnmount(() => {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(circle at 88% 0%, rgba(224, 134, 43, 0.1), transparent 62%);
+  border-radius: inherit;   background: radial-gradient(circle at 88% 0%, rgba(5, 166, 75, 0.1), transparent 62%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
 }
 .fin-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: rgba(224, 134, 43, 0.32);
+  box-shadow: var(--shadow-xl);   border-color: rgba(5, 166, 75, 0.32);
 }
 .fin-card:hover::after { opacity: 1; }
 
@@ -388,6 +475,130 @@ onBeforeUnmount(() => {
 }
 .fin-card:hover .fin-bar { width: 74px; }
 
+#ipo,
+#glance,
+#governance { scroll-margin-top: 110px; }
+
+.ir-jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.ir-jump a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 17px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.07);
+  color: #e8eff7;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.ir-jump a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.mf-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 44px;
+  padding: 30px 0 18px;
+  border-top: 1px solid rgba(11, 31, 58, 0.09);
+}
+.mf-head h3 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+.mf-head span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.mf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 0;
+}
+.mf-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 22px 24px;
+  background: var(--white);
+  border: 1px solid rgba(11, 31, 58, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.mf-grid.is-in .mf-card { opacity: 1; transform: none; }
+.mf-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mf-card:hover {
+  transition-delay: 0ms;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);   border-color: rgba(5, 166, 75, 0.3);
+}
+.mf-card:hover::before { transform: scaleX(1); }
+.mf-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--accent);   background: rgba(5, 166, 75, 0.1);
+  transition: var(--transition);
+}
+.mf-card:hover .mf-icon { color: var(--white); background: var(--accent); }
+.mf-body { min-width: 0; }
+.mf-index {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-family: var(--font-head);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--silver);
+}
+.mf-body h3 {
+  margin: 0;
+  padding-right: 34px;
+  font-family: var(--font-head);
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--primary);
+}
+.mf-body p {
+  margin: 6px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
 .ipo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -406,8 +617,7 @@ onBeforeUnmount(() => {
 }
 .ipo-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(224, 134, 43, 0.28);
+  box-shadow: var(--shadow-lg);   border-color: rgba(5, 166, 75, 0.28);
 }
 .ipo-head {
   display: flex;
@@ -421,8 +631,7 @@ onBeforeUnmount(() => {
   display: grid;
   place-items: center;
   border-radius: 14px;
-  color: var(--accent);
-  background: rgba(224, 134, 43, 0.1);
+  color: var(--accent);   background: rgba(5, 166, 75, 0.1);
 }
 .ipo-tag {
   display: block;
@@ -519,8 +728,7 @@ onBeforeUnmount(() => {
 .gov-card:hover {
   transition-delay: 0ms;
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(224, 134, 43, 0.3);
+  box-shadow: var(--shadow-lg);   border-color: rgba(5, 166, 75, 0.3);
 }
 .gov-card:hover::before { transform: scaleX(1); }
 .gov-index {
@@ -541,8 +749,7 @@ onBeforeUnmount(() => {
   display: grid;
   place-items: center;
   border-radius: 14px;
-  color: var(--accent);
-  background: rgba(224, 134, 43, 0.1);
+  color: var(--accent);   background: rgba(5, 166, 75, 0.1);
   transition: var(--transition);
 }
 .gov-card:hover .gov-icon {
@@ -602,8 +809,23 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
   color: var(--accent);
 }
+.gov-docs-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.gov-docs-count {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  white-space: nowrap;
+}
 .gov-docs h3 {
-  margin: 6px 0 18px;
+  margin: 6px 0 0;
   font-family: var(--font-head);
   font-size: 1.1rem;
   color: var(--primary);
@@ -628,8 +850,7 @@ onBeforeUnmount(() => {
   text-decoration: none;
   transition: var(--transition);
 }
-.gov-docs a:hover {
-  border-color: rgba(224, 134, 43, 0.4);
+.gov-docs a:hover {   border-color: rgba(5, 166, 75, 0.4);
   box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
@@ -657,10 +878,38 @@ onBeforeUnmount(() => {
   color: var(--silver);
 }
 
+.ir-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  padding: 42px 44px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+.ir-box h2 { color: var(--white); margin: 8px 0 10px; }
+.ir-box p { margin: 0; color: #c3cfdd; max-width: 54ch; }
+.ir-box .kicker { color: var(--accent-light); }
+.ir-box-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.ir-tel {
+  color: var(--accent-light);
+  font-family: var(--font-head);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ir-tel:hover { color: var(--white); }
+
 @media (max-width: 900px) {
   .fin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .ipo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 32px; }
   .gov-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 32px; }
+  .mf-grid { gap: 16px; }
+  .ir-box { flex-direction: column; align-items: flex-start; padding: 32px; }
+  .ir-box-actions { width: 100%; gap: 14px; }
   .gov-docs ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
@@ -668,6 +917,10 @@ onBeforeUnmount(() => {
   .fin-card { padding: 26px 22px 24px; }
   .fin-index { top: 18px; right: 20px; }
   .gov-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  .mf-head { margin-top: 34px; padding: 24px 0 14px; }
+  .mf-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 0; }
+  .mf-card { padding: 20px; grid-template-columns: 40px 1fr; gap: 14px; }
+  .mf-icon { width: 40px; height: 40px; }
   .gov-card { padding: 26px 22px 22px; }
   .gov-docs { padding: 24px 20px; border-radius: var(--radius); }
   .ipo-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
@@ -677,7 +930,8 @@ onBeforeUnmount(() => {
 }
 @media (prefers-reduced-motion: reduce) {
   .fin-card,
-  .fin-bar {
+  .fin-bar,
+  .mf-card {
     transition: none;
     opacity: 1;
     transform: none;

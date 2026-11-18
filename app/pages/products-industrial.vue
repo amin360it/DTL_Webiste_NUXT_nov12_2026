@@ -156,3 +156,14 @@ useSeo({
     intro="Ladders, signboards, ducting, bars, rods, ingots, heat sinks and solar sections."
   />
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+</style>

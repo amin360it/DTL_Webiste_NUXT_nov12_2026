@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useModal } from '~/composables/useModal'
+import { useOrganizationSchema } from '~/composables/useSeo'
 import { wirePageInteractions } from '~/composables/useLegacyInteractions'
 import { watch, onMounted, nextTick } from 'vue'
 
 const { state, closeLightbox, closePdf, closeVideo } = useModal()
 const route = useRoute()
+
+useOrganizationSchema()
 
 watch(() => state.lightbox.open || state.pdf.open || state.video.open, (anyOpen) => {
   document.body.style.overflow = anyOpen ? 'hidden' : ''
@@ -52,6 +55,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
       <slot />
     </main>
     <SiteFooter />
+    <BackToTop />
     <LightboxModal />
     <PdfModal />
     <VideoModal />

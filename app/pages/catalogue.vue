@@ -190,3 +190,12 @@ const setTab = (name: string) => {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-3 { grid-template-columns: 1fr !important; }
+}
+</style>

@@ -1,0 +1,1 @@
+import{r as e}from"#entry";var t=e(`/assets/img/powder coating-01bb4b.png`);export{t};

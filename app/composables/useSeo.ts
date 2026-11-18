@@ -29,6 +29,33 @@ export function useSeo(options: SeoOptions) {
   const fullTitle = options.titleTemplate === null ? options.title : `${options.title} | ${SITE_NAME}`
   const image = `${base}${options.image || DEFAULT_IMAGE}`
 
+  const graph: Record<string, unknown>[] = [
+    {
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: fullTitle,
+      description: options.description,
+      isPartOf: { '@id': `${base}/#website` },
+      about: { '@id': `${base}/#organization` },
+      primaryImageOfPage: image,
+      inLanguage: 'en'
+    }
+  ]
+
+  if (path !== '/') {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${url}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${base}/` },
+        { '@type': 'ListItem', position: 2, name: options.title, item: url }
+      ]
+    })
+  }
+
+  const schema = { '@context': 'https://schema.org', '@graph': graph }
+
   useHead({
     title: options.title,
     titleTemplate: options.titleTemplate === undefined ? TITLE_TEMPLATE : options.titleTemplate,
@@ -52,8 +79,11 @@ export function useSeo(options: SeoOptions) {
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: options.description },
-      { name: 'twitter:image', content: image }
-    ]
+      { name: 'twitter:image', content: image },
+      { property: 'og:image:width', content: '1024' },
+      { property: 'og:image:height', content: '550' }
+    ],
+    script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(schema) }]
   })
 }
 

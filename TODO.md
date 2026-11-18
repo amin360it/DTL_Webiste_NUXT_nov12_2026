@@ -1,6 +1,6 @@
 # TODO — DTL Website Nuxt Migration
 
-Status of the static-HTML → Nuxt 4 SSG port. Source: `D:\__WORKING_Project\DTL_Webiste\DTL_new_website\`
+Status of the static-HTML → Nuxt 4 SSG port. Source in `src/`.
 
 ## Done
 
@@ -30,7 +30,7 @@ Status of the static-HTML → Nuxt 4 SSG port. Source: `D:\__WORKING_Project\DTL
 - [x] Mobile accordion fixed: tapping a closed section expands it **without** navigating; tapping an already-open section navigates and closes the drawer. Implemented with a capture-phase listener on `<ul class="nav-menu">` matching a `[data-accordion]` attribute, because `preventDefault()` inside a `NuxtLink` `@click` runs after RouterLink's own navigation handler. Resizing up to desktop now also clears `openSection` (as the original did).
 - [x] Lightbox root id corrected to `lightbox` (the original footer markup) instead of `lightboxModal`.
 - [x] Header/scale audit vs. the source `main.js` + `css/style.css`: `.nav-toggle.open`, `.nav-backdrop.show`, `.nav-menu.open`, `.has-dd.open`, `.header.scrolled`, `.tab-btn.active`, `data-year` all match.
-- [x] Doc fixes in `AGENTS.md` / `TODO.md`: source path `D:\_#WORKING_Project\...` → `D:\__WORKING_Project\...`, stale `serve-site.js` reference replaced with `npx serve dist -p 8124`
+- [x] Doc fixes in `AGENTS.md` / `TODO.md`: source path `src/...` → `.`, stale `serve-site.js` reference replaced with `npx serve dist -p 8124`
 - [x] **Full title/description audit against the source** (all 35 pages compared byte-for-byte after HTML-entity decoding). This caught real bugs: **14 pages had wrong `<title>`** because an earlier AGENTS route-table paraphrased them (`Architectural Profiles` should be `Architectural Aluminium Profiles`, etc.) and **`/` had no meta description at all**. All 15 fixed; the audit now reports **35/35 exact matches** for both title and description.
 - [x] `/dealer-list` title + description corrected to the source values (`Sales Network & Dealer's List` / *Authorized dealers across Bangladesh …*).
 - [x] **`/factory` page ported** (`app/pages/factory.vue`). The source ships `factory.html` (real page: hero, factory photo, `check-list`, 4-image `data-lightbox` gallery) but **no page, nav item or footer link points to it** — it is orphaned in the source. Ported for completeness and left unlinked, exactly as the source has it. Source page count was always 35 (the older AGENTS table listed only 34).
@@ -50,6 +50,30 @@ Status of the static-HTML → Nuxt 4 SSG port. Source: `D:\__WORKING_Project\DTL
 - [x] `app/data/productBuckets.ts` — maps CSV brand-categories to the six application buckets used by the `/products-*` pages
 - [x] `app/components/ProductProfiles.vue` — CSV-driven "Profile Database" card grid (photo, die, name, sub, "Show Drawing" lightbox; deduped by die; "Load more") reusing the online-catalogue `cat-*` CSS
 - [x] Profile section added to `/products-architectural` (1,244), `/products-industrial` (307), `/products-furniture` (144), `/products-hardware` (95), `/products-electrical` (119), `/products-others` (16)
+
+## Session 2026-11-14 — drawer, contact, news
+
+- [x] `app/components/SiteHeader.vue` — mobile drawer submenu re-nested for readability: `.dropdown` `margin-left: 52px` + `padding-left: 14px` + a left guide line, submenu links `padding-left: 10px` (hover 13px). Items no longer sit level with (and left of) the parent label.
+- [x] `app/components/SiteHeader.vue` — drawer no longer closes on accordion taps: `onMenuCapture` now always blocks the parent `NuxtLink` and toggles the section, instead of navigating to the section landing page (which closed the whole drawer via the route watcher).
+- [x] `app/data/routeContacts.ts` — added a `division` field to all 182 rows (62 districts mapped to the 8 divisions); type is now `{ district, division, route, phone }`.
+- [x] `app/pages/contact.vue` — rebuilt in the fixed order **Where To Reach Us → Find Us → Investor Resources → Customer Services Team**. New `.reach-card` design (gradient header band, icon rows, Call/WhatsApp/Directions actions); map pins use the old site's exact coordinates (`23.801066,90.424450` / `23.931238,90.311241`); Customer Services table has search + Division→District→Area filters, chips, live count, Call/WhatsApp actions and a mobile card layout.
+- [x] `app/pages/news.vue` — restored the TBS infographic (`/assets/img/p7_info_dhakathai-alcomaxx3404.jpg`) and rebuilt the four video cards as `video-thumb` popups that open `VideoModal` (`f89Qwzayf2U`, `bvIPx5s0mXU`, `8KbnYhiR9So`, `2xIttPr0Xww`).
+- [x] `progress.md` added (session log) and `AGENTS.md` updated with the contact/news page specs plus a project file map.
+- [x] Verified in headless Chrome: drawer at 390/768 px (expand, re-tap collapses, drawer stays open), contact filters (182 → 69 for Dhaka → 1 for "mirpur"), news video popup, `npm run generate` exit 0 (74 routes).
+
+## Session 2026-11-14 (part 2) — modals, dark mode, top button, SEO, 3 pages
+
+- [x] **All images now open in the lightbox.** `useLegacyInteractions.ts` gained a `zoomableImage()` guard (skips chrome, links, buttons, <56px icons, `[data-no-zoom]`) and marks matches with `data-zoomable` + `cursor: zoom-in`. Captions come from `[data-caption]`, `<figcaption>` or `alt`. All YouTube links now open the video modal too.
+- [x] **Full dark mode** via `app/assets/css/theme.css` (loaded after `main.css`; `main.css` untouched) + `app/composables/useTheme.ts` + pre-paint inline script in `nuxt.config.ts` (localStorage `dtl-theme`, system preference fallback).
+- [x] **Theme switch in the header**, visible on desktop and mobile (logo → sun/moon → burger); sun/moon swap in CSS to avoid hydration flash.
+- [x] **Floating back-to-top button** (`app/components/BackToTop.vue`, shows past 480 px scroll, z-index 900).
+- [x] **SEO pass**: sitewide Organization + WebSite JSON-LD moved into `layouts/default.vue`, per-page WebPage + BreadcrumbList JSON-LD in `useSeo`, `og:image:width/height`, `apple-touch-icon`, `theme-color` (light/dark), `author`, `geo.*`, `preconnect` to i.ytimg.com.
+- [x] **`/projects-list`** rebuilt: data in `app/data/projects.ts` (198 projects), counted tabs, live search, stat cards, empty state.
+- [x] **`/projects-image`** rebuilt: data in `app/data/projectGallery.ts` (37 images with `place`), location chips + search + count, tiles still open the lightbox.
+- [x] **`/enlisted-developer`** rebuilt: data in `app/data/developers.ts` — source's 955 rows (repeated blocks + ~19 scraped nav/footer lines) cleaned and de-duplicated to 506 companies, with search, A-Z filter and sticky header.
+- [x] **`/board-of-directors`** rebuilt from the old page: `app/data/directors.ts` (9 members, each with the old site's three highlight bullets + full bio). Alternating profile rows with portraits, role/independent chips, bio clamped to 4 lines and a `Read full profile` dialog (role=dialog, Escape/backdrop close, scroll lock, focus on open, responsive). Intro stats 9 / 7 / 2 and a governance aside; fixed the broken Sulaiman Ajanee portrait path.
+- [x] Verified: lightbox on manufacturing/products/profiles/news/About figure; video thumb still opens the video modal (not the lightbox); nav CTAs unaffected; dark + light screenshots of home, about, products, contact, news, catalogue, online catalogue, dealer list, investors, projects pages at 1280 and 390 px; theme persists on reload; back-to-top appears/scrolls; `npm run generate` exit 0, 74 routes, canonical + OG + 2 JSON-LD blocks in the built HTML.
+- [x] Board page verified at 1280 px and 390 px in light + dark: 9 rows, 27 highlights, stat counts, modal opens from portrait and button, Escape closes and restores scroll, no horizontal overflow, no console exceptions.
 
 ## Known issues (pre-existing in the source, left verbatim)
 
@@ -74,7 +98,7 @@ Status of the static-HTML → Nuxt 4 SSG port. Source: `D:\__WORKING_Project\DTL
 - [x] `npm run generate` succeeds (72 prerendered routes, 0 errors); `dist/` has 38 `.html` files (35 routes + 200.html + 404.html; map-v5 embed and its dir removed).
 - [x] `npm install` — `node_modules/` installed
 - [x] `npm run generate` — build succeeded (**72 prerendered routes**); `dist/` generated with **35 page routes** + assets; every page title + description verified identical to the source (3 remaining title mismatches are unhead HTML-encoding artifacts: `&`/`'` → `&amp;`/`&#x27;`, render identically)
-- [x] First deployment → `D:\__WORKING_Project\DTL_Webiste_NUXT\publish\` (528 files, 111 MB; `robocopy /e /mir`)
+- [x] First deployment → `publish/` (528 files, 111 MB; `robocopy /e /mir`)
 - [x] Set deploy target in `deploy.bat` arg or `DTL_DEPLOY_TARGET` env var (optional, for future redeploys)
 
 ## Commands
@@ -90,5 +114,5 @@ dev.bat
 build.bat
 
 # Build + copy dist/ to deploy target
-deploy.bat "D:\path\to\hosting"
+deploy.bat "path\to\hosting"
 ```

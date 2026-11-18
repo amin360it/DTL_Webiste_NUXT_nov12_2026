@@ -222,3 +222,13 @@ watch(searchQuery, () => {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .cat-acc-body .cat-grid { grid-template-columns: 1fr !important; }
+  .cat-sub-block { margin: 20px 0; }
+}
+@media (max-width: 620px) {
+  .cat-acc-body { padding: 0 10px; }
+}
+</style>

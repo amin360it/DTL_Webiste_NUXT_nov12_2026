@@ -79,3 +79,19 @@ useSeo({
     intro="Office partitions, wardrobes, vertical &amp; roller blinds and bathroom profiles."
   />
 </template>
+
+<style scoped>
+.section .grid .card { display: flex; flex-direction: column; }
+.section .grid .card-body { display: flex; flex-direction: column; flex: 1; }
+.section .grid .card-body h3 { min-height: 2.3em; }
+.section .grid .card-body p { min-height: 3.3em; }
+.section .grid .card-body .btn { margin-top: auto; }
+@media (max-width: 1024px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 620px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr !important; }
+}
+</style>
