@@ -217,8 +217,13 @@ onBeforeUnmount(() => {
 
   <section class="section" id="certifications">
     <div class="container">
+      <div class="section-head">
+        <span class="kicker">Certifications</span>
+        <h2>Certified &amp; Accredited</h2>
+        <p>ISO 9001:2015 certified and recognized by leading industry bodies.</p>
+      </div>
       <div class="cert-strip">
-        <span class="cert-label">Certified By</span>
+        <h3 class="cert-label">Certified By</h3>
         <div class="cert-logos">
           <img src="/assets/img/cert-1.png" alt="Certification 1">
           <img src="/assets/img/cert-2.png" alt="Certification 2">

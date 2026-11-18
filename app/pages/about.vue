@@ -237,14 +237,22 @@ useSeo({
           <p>Partnered with BUET and numerous developers and REHAB member companies.</p>
         </div>
       </div>
+      <div class="section-head">
+        <span class="kicker">Certifications</span>
+        <h2>Certified &amp; Accredited</h2>
+        <p>ISO 9001:2015 certified and recognized by leading industry bodies.</p>
+      </div>
       <div class="cert-strip">
-        <span class="cert-label">Certified By</span>
+        <h3 class="cert-label">Certified By</h3>
         <div class="cert-logos">
           <img src="/assets/img/cert-1.png" alt="ISO 9001:2015 certification">
           <img src="/assets/img/cert-2.png" alt="BSTI certification">
           <img src="/assets/img/cert-3.png" alt="Aluminium Extruders Council membership">
           <img src="/assets/img/cert-sms-demag.png" alt="SMS Demag">
         </div>
+      </div>
+      <div class="cert-banner">
+        <img src="/assets/img/cert-alco.jpg" alt="ISO 9001:2015 Certified, BSTI, BUET, Aluminum Extruders Council and The Aluminum Association">
       </div>
     </div>
   </section>
@@ -367,6 +375,19 @@ useSeo({
   transition: var(--transition);
 }
 .cert-logos img:hover { filter: none; opacity: 1; }
+.cert-banner {
+  margin-top: 18px;
+  padding: 18px 28px;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+}
+.cert-banner img { display: block; width: 100%; max-width: 1000px; height: auto; }
+@media (max-width: 620px) {
+  .cert-banner { margin-top: 14px; padding: 14px 16px; }
+}
 #who-we-are,
 #strengths,
 #vision,
