@@ -1,0 +1,1 @@
+import{n as e}from"#entry";var t=e(`/assets/img/supplier-truck-icon693d.jpg`);export{t};

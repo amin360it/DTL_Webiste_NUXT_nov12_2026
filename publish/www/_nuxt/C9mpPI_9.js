@@ -1,0 +1,1 @@
+import{n as e}from"#entry";var t=e(`/assets/img/dhakathai alcomaxx plc factorya2d6.jpg`);export{t};

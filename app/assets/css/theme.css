@@ -260,6 +260,11 @@ html[data-theme='dark'] .quality-feature h3 { color: #f2f2f2; }
 html[data-theme='dark'] .about-jump a { color: #f2f2f2; }
 .dealer-search:focus-within { box-shadow: 0 0 0 3px rgba(5, 166, 75, 0.12); }
 .dealer-summary .chip { background: rgba(5, 166, 75, 0.1); }
+html[data-theme='dark'] .dealer-summary b { color: #f2f2f2; }
+@media (max-width: 620px) {
+  html[data-theme='dark'] .dealer-table tbody tr { background: var(--surface); border-color: var(--line); }
+  html[data-theme='dark'] .dealer-table td:first-child { border-bottom-color: var(--line); }
+}
 .contact-card h3 .ci { background: rgba(5, 166, 75, 0.12); }
 .contact-card:hover { border-color: rgba(5, 166, 75, 0.25); }
 .btn-call { background: rgba(5, 166, 75, 0.12); }

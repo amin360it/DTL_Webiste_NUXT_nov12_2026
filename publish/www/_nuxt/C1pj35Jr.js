@@ -1,0 +1,1 @@
+import{n as e}from"#entry";var t=e(`/assets/img/white3980.jpg`);export{t};

@@ -878,8 +878,22 @@ onBeforeUnmount(() => {
 .hero-caption-link:hover { color: #fff; border-color: #fff; }
 @media (max-width: 620px) {
   .hero-slide-img { object-position: center top; }
-  .hero-caption { bottom: 18px; padding: 6px 16px; font-size: 0.66rem; }
-
+  .hero-caption {
+    bottom: 16px;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.45;
+    gap: 4px 10px;
+    padding: 6px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+  .hero-caption-link { letter-spacing: 0.14em; }
 }
 @media (width<=1024px) {
   .hero-intro .hero-stats { grid-template-columns: repeat(3, 1fr); }
@@ -911,10 +925,6 @@ onBeforeUnmount(() => {
   .hero-intro .hs-num { font-size: 1.2rem; }
   .hero-intro .hs-label { font-size: 0.58rem; margin-top: 2px; }
   .features-grid { grid-template-columns: 1fr; gap: 12px; padding: 36px 16px 0; }
-}
-@media (prefers-color-scheme: light) {
-  .hero-intro .hs-label { color: rgba(10, 18, 32, 0.75); }
-  .hero-intro .hs-num { color: var(--primary); }
 }
 .cert-banner {
   margin-top: 18px;

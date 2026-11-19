@@ -190,14 +190,14 @@ onBeforeUnmount(() => {
           </thead>
           <tbody id="dealerBody">
             <tr v-for="(d, i) in filteredDealers" :key="i" class="dealer-row">
-              <td>
+              <td data-label="Customer">
                 <span class="area-tag">{{ d.area || 'Others' }}</span>
                 <b>{{ d.customer }}</b>
               </td>
-              <td>{{ d.person }}</td>
-              <td class="addr">{{ d.address }}</td>
-              <td class="num">{{ d.phone }}</td>
-              <td>
+              <td data-label="Contact Person">{{ d.person }}</td>
+              <td class="addr" data-label="Address">{{ d.address }}</td>
+              <td class="num" data-label="Mobile">{{ d.phone }}</td>
+              <td class="dealer-actions" data-label="Action">
                 <div class="actions">
                   <a v-if="telLink(d.phone)" :href="telLink(d.phone)" class="btn-call-sm">&#9742; Call</a>
                   <a v-if="waLink(d.phone)" :href="waLink(d.phone)" target="_blank" rel="noopener" class="btn-whatsapp-sm">WhatsApp</a>
@@ -226,9 +226,55 @@ onBeforeUnmount(() => {
   .dealer-table thead th { font-size: 0.85rem; }
 }
 @media (max-width: 620px) {
+  .table-wrap { background: transparent; box-shadow: none; border-radius: 0; }
+  .dealer-table,
+  .dealer-table tbody { display: block; }
   .dealer-table thead { display: none; }
-  .dealer-table tbody tr { display: block; margin-bottom: 12px; border-bottom: 1px solid var(--light-2); }
-  .dealer-table td { display: table-cell; width: auto; }
-  .dealer-table td:first-child { font-weight: bold; }
+  .dealer-table tbody tr {
+    display: block;
+    margin-bottom: 12px;
+    padding: 16px 18px;
+    background: var(--white);
+    border: 1px solid var(--light-2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  .dealer-table td {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 6px 12px;
+    padding: 5px 0;
+    border: 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    width: auto;
+  }
+  .dealer-table td::before {
+    content: attr(data-label);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding-top: 3px;
+  }
+  .dealer-table td:first-child {
+    display: block;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--light-2);
+  }
+  .dealer-table td:first-child::before { display: none; }
+  .dealer-table td:first-child b { display: block; margin-top: 4px; font-size: 1rem; line-height: 1.4; }
+  .dealer-table td.num { white-space: normal; }
+  .dealer-table td.dealer-actions { display: block; padding-top: 12px; }
+  .dealer-table td.dealer-actions::before { display: none; }
+  .dealer-table td[colspan] { display: block; padding: 34px 4px; }
+  .dealer-table td[colspan]::before { display: none; }
+  .dealer-table .actions { display: flex; gap: 8px; }
+  .dealer-table .actions a { flex: 1 1 0; min-height: 40px; justify-content: center; text-align: center; padding: 9px 12px; }
+}
+@media (max-width: 360px) {
+  .dealer-table td { grid-template-columns: 76px minmax(0, 1fr); }
 }
 </style>
