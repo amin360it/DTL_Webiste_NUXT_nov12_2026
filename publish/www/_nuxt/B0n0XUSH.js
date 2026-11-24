@@ -1,0 +1,1 @@
+import{c as e}from"#entry";var t=e(`/assets/img/dscf1358_1422c.jpg`),n=e(`/assets/img/e2085f89c57999946881a821c629421a-crop-u111444cf5.png`);export{t as n,n as t};

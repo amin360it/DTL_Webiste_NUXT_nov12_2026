@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
           <p>Get to know DHAKATHAI ALCOMAXX PLC &mdash; our story, our people and our manufacturing strength, in just three minutes.</p>
           <NuxtLink class="btn btn-primary" to="/media">Watch More Videos</NuxtLink>
         </div>
-        <a class="video-cta-play" href="/media" aria-label="Play introduction video" @click.prevent="openVideo('i0f2fi61ow0', 'Introduction In 3 Minutes')">
+        <a class="video-cta-play" href="/3-min" aria-label="Play introduction video" @click.prevent="openVideo('i0f2fi61ow0', 'Introduction In 3 Minutes')">
           <span class="play-icon" aria-hidden="true"></span>
           <span class="play-label">Play Video</span>
         </a>
@@ -637,13 +637,15 @@ onBeforeUnmount(() => {
   display: block;
 }
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  padding: 60px 20px 0;
+  padding: 60px 0 0;
 }
 .features-grid .feature-card {
   position: relative;
+  flex: 1 1 45%;
+  min-width: 0;
   text-align: left;
   padding: 32px 26px 30px;
   background: var(--white);
@@ -719,13 +721,15 @@ onBeforeUnmount(() => {
   display: block;
 }
 .quality-features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 44px;
 }
 .quality-feature {
   position: relative;
+  flex: 1 1 22%;
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -782,7 +786,7 @@ onBeforeUnmount(() => {
   margin: 0;
 }
 @media (max-width: 980px) {
-  .quality-features { grid-template-columns: repeat(2, 1fr); }
+  .quality-feature { flex: 1 1 45%; }
 }
 
 .is-reveal {
@@ -810,7 +814,11 @@ onBeforeUnmount(() => {
   .quality-feature:hover::before { animation: none; }
 }
 @media (max-width: 560px) {
-  .quality-features { grid-template-columns: 1fr; }
+  .quality-features { gap: 12px; margin-top: 32px; }
+  .quality-feature { flex: 1 1 45%; padding: 16px 14px; gap: 10px; }
+  .quality-feature .feature-icon { width: 36px; height: 36px; border-radius: 10px; }
+  .quality-feature h3 { font-size: 0.86rem; }
+  .quality-feature p { font-size: 0.76rem; }
 }
 .video-cta-play {
   padding: 36px;
@@ -924,7 +932,11 @@ onBeforeUnmount(() => {
   .hero-intro .hs { padding: 8px 6px; }
   .hero-intro .hs-num { font-size: 1.2rem; }
   .hero-intro .hs-label { font-size: 0.58rem; margin-top: 2px; }
-  .features-grid { grid-template-columns: 1fr; gap: 12px; padding: 36px 16px 0; }
+  .features-grid { gap: 12px; padding: 36px 0 0; }
+  .features-grid .feature-card { padding: 20px 16px 18px; }
+  .features-grid .feature-card .feature-icon { width: 40px; height: 40px; margin-bottom: 12px; border-radius: 11px; }
+  .features-grid .feature-card h3 { font-size: 0.9rem; }
+  .features-grid .feature-card p { font-size: 0.78rem; }
 }
 .cert-banner {
   margin-top: 18px;

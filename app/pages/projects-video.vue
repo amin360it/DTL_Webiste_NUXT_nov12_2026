@@ -44,6 +44,10 @@ function playVideo(id: string, title: string) {
           <span class="video-play"></span><span class="video-tag">Watch on YouTube</span>
         </button>
       </div>
+      <div class="text-center mt-10">
+        <NuxtLink to="/projects-image" class="btn btn-primary">View Full Image Gallery</NuxtLink>
+        <NuxtLink to="/projects-list" class="btn btn-dark">View Complete Project List</NuxtLink>
+      </div>
     </div>
   </section>
 </template>

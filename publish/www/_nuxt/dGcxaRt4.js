@@ -1,0 +1,1 @@
+import{r as e}from"#entry";var t=e(`/assets/img/sliding-patio-doors-crop-u79740a29.png`);export{t};

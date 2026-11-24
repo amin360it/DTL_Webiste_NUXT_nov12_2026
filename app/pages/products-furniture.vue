@@ -69,6 +69,10 @@ useSeo({
           <div class="card-img"><img src="/assets/img/img_1491-crop-u13435cf87.png" alt="Bathroom shelf"></div>
           <div class="card-body"><h3>Bathroom Shelf &amp; Shower</h3><p>Bathroom and shower profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/49-bathroom-shelf.pdf" target="_blank">Drawing</a></div>
         </div>
+        <div class="card">
+          <CardPlaceholder />
+          <div class="card-body"><h3>Washroom Door &amp; Door Handle</h3><p>Washroom door frames and handles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/50-washroom-door---door-handle.pdf" target="_blank">Drawing</a></div>
+        </div>
       </div>
     </div>
   </section>

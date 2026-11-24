@@ -95,18 +95,101 @@ const mailIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" st
 
 const investorResources = [
   { name: 'Prospectus', type: 'PDF', href: '/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf', icon: docIcon, file: true },
-  { name: 'IPO Application Result', type: 'Announcement', href: '/news', icon: newsIcon },
-  { name: 'IPO Fund Utilization', type: 'Highlights', href: '#glance', icon: chartIcon },
-  { name: 'Financial Report', type: 'Highlights', href: '#glance', icon: chartIcon },
-  { name: 'Price Sensitive Information', type: 'Announcement', href: '/news', icon: newsIcon },
-  { name: 'Corporate Governance Compliance', type: 'PDF', href: '/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf', icon: boardIcon, file: true },
-  { name: 'Directors Report', type: 'Announcement', href: '/news', icon: newsIcon },
-  { name: 'Annual Report', type: 'Announcement', href: '/news', icon: newsIcon },
+  { name: 'IPO Application Result', type: 'Disclosure', href: '#ipo-application-result', icon: newsIcon },
+  { name: 'IPO Fund Utilization', type: 'Disclosure', href: '#ipo-fund-utilization', icon: chartIcon },
+  { name: 'Financial Report', type: 'Disclosure', href: '#financial-report', icon: chartIcon },
+  { name: 'Price Sensitive Information', type: 'Disclosure', href: '#price-sensitive', icon: newsIcon },
+  { name: 'Corporate Governance Compliance', type: 'Section', href: '#governance', icon: boardIcon },
+  { name: 'Directors Report', type: 'Disclosure', href: '#directors-report', icon: newsIcon },
+  { name: 'Annual Report', type: 'Disclosure', href: '#annual-report', icon: docIcon },
   { name: 'Details of Shareholding', type: 'PDF', href: '/assets/pdfs/list-of-share-distribution-to-the-employees-and-others.pdf', icon: docIcon, file: true },
-  { name: 'Extraordinary General Meeting', type: 'Announcement', href: '/news', icon: calendarIcon },
-  { name: 'Annual General Meeting', type: 'Announcement', href: '/news', icon: calendarIcon },
-  { name: 'Dividend', type: 'Announcement', href: '/news', icon: moneyIcon },
+  { name: 'Extraordinary General Meeting', type: 'Disclosure', href: '#egm', icon: calendarIcon },
+  { name: 'Annual General Meeting', type: 'Disclosure', href: '#agm', icon: calendarIcon },
+  { name: 'Dividend', type: 'Disclosure', href: '#dividend', icon: moneyIcon },
   { name: 'Investors Contact', type: 'Contact', href: '/contact#investor-relations', icon: mailIcon }
+]
+
+const disclosures = [
+  {
+    id: 'annual-report',
+    title: 'Annual Report',
+    text: 'The annual report for each financial year brings the audited financial statements, the directors report and the corporate governance disclosures together in one document.',
+    label: 'Financial highlights',
+    href: '#glance',
+    icon: docIcon
+  },
+  {
+    id: 'financial-report',
+    title: 'Financial Report',
+    text: 'Year-end and interim financial statements are published for shareholders, along with the IPO fund utilisation report required after listing.',
+    label: 'At a glance',
+    href: '#glance',
+    icon: chartIcon
+  },
+  {
+    id: 'directors-report',
+    title: 'Directors Report',
+    text: "The Board's report on the year's operations, principal risks and governance arrangements is laid before shareholders at the annual general meeting.",
+    label: 'Board of Directors',
+    href: '/board-of-directors',
+    icon: boardIcon
+  },
+  {
+    id: 'dividend',
+    title: 'Dividend',
+    text: 'Dividend declarations, record dates and payment details are announced to the stock exchanges and published in our news section as soon as they are approved.',
+    label: 'Company announcements',
+    href: '/news',
+    icon: moneyIcon
+  },
+  {
+    id: 'agm',
+    title: 'Annual General Meeting',
+    text: 'The AGM is held once a year, where shareholders receive the audited accounts, appoint auditors, elect directors and approve the dividend.',
+    label: 'Latest news',
+    href: '/news',
+    icon: calendarIcon
+  },
+  {
+    id: 'egm',
+    title: 'Extraordinary General Meeting',
+    text: 'An EGM is convened when shareholders must approve a matter that cannot wait for the next annual meeting, such as a change to capital or to the memorandum.',
+    label: 'Latest news',
+    href: '/news',
+    icon: calendarIcon
+  },
+  {
+    id: 'details-of-shareholding',
+    title: 'Details of Shareholding',
+    text: 'The distribution of shares between sponsors, institutions, employees and the general public, as filed with the regulator after the offer.',
+    label: 'Share distribution (PDF)',
+    href: '/assets/pdfs/list-of-share-distribution-to-the-employees-and-others.pdf',
+    icon: docIcon
+  },
+  {
+    id: 'price-sensitive',
+    title: 'Price Sensitive Information',
+    text: 'Information that may affect the market price of our shares is disclosed to the exchanges and published here without delay.',
+    label: 'Company announcements',
+    href: '/news',
+    icon: newsIcon
+  },
+  {
+    id: 'ipo-application-result',
+    title: 'IPO Application Result',
+    text: 'Allotment results for the initial public offering, including the basis of allotment applied to general and quota applicants.',
+    label: 'IPO announcement',
+    href: '/news',
+    icon: newsIcon
+  },
+  {
+    id: 'ipo-fund-utilization',
+    title: 'IPO Fund Utilization',
+    text: 'How the Tk30 crore raised through the IPO is being applied against the objects stated in the prospectus, reported to shareholders as required.',
+    label: 'Read the prospectus',
+    href: '/assets/pdfs/prospectus-of-dhakathai-alcomaxx-plc.pdf',
+    icon: moneyIcon
+  }
 ]
 
 const govGrid = ref<HTMLElement | null>(null)
@@ -184,6 +267,7 @@ onBeforeUnmount(() => {
         <a href="#ipo">IPO documents</a>
         <a href="#glance">Financial highlights</a>
         <a href="#governance">Governance</a>
+        <a href="#disclosures">Disclosures</a>
       </nav>
     </div>
   </section>
@@ -346,6 +430,10 @@ onBeforeUnmount(() => {
               <span class="gov-doc-icon" v-html="r.icon" />
               <span class="gov-doc-name">{{ r.name }}<em>{{ r.type }}</em></span>
             </a>
+            <a v-else-if="r.href.startsWith('#')" :href="r.href">
+              <span class="gov-doc-icon" v-html="r.icon" />
+              <span class="gov-doc-name">{{ r.name }}<em>{{ r.type }}</em></span>
+            </a>
             <NuxtLink v-else :to="r.href">
               <span class="gov-doc-icon" v-html="r.icon" />
               <span class="gov-doc-name">{{ r.name }}<em>{{ r.type }}</em></span>
@@ -353,6 +441,39 @@ onBeforeUnmount(() => {
           </li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section id="disclosures" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Disclosures</span>
+        <h2>Reports, Meetings &amp; Shareholder Information</h2>
+        <p>Every item from the investor menu in one place - what each disclosure covers and where it is published.</p>
+      </div>
+      <div class="mf-grid is-in ir-disc-grid">
+        <article
+          v-for="(d, i) in disclosures"
+          :id="d.id"
+          :key="d.id"
+          class="mf-card ir-disc"
+          :style="{ transitionDelay: (i * 50) + 'ms' }"
+        >
+          <div class="mf-icon" v-html="d.icon" />
+          <div class="mf-body">
+            <span class="mf-index">{{ String(i + 1).padStart(2, '0') }}</span>
+            <h3>{{ d.title }}</h3>
+            <p>{{ d.text }}</p>
+            <a v-if="d.href.startsWith('/assets')" class="gov-link ir-disc-link" :href="d.href" target="_blank" rel="noopener">{{ d.label }} &rarr;</a>
+            <a v-else-if="d.href.startsWith('#')" class="gov-link ir-disc-link" :href="d.href">{{ d.label }} &rarr;</a>
+            <NuxtLink v-else class="gov-link ir-disc-link" :to="d.href">{{ d.label }} &rarr;</NuxtLink>
+          </div>
+        </article>
+      </div>
+      <p class="ir-note">
+        Filings are published here as they are released to the stock exchanges. For a certified copy of any disclosure, write to
+        <a href="mailto:info@dhakathaibd.com">info@dhakathaibd.com</a> or call <a href="tel:+8801708814972">+88 01708-814972</a>.
+      </p>
     </div>
   </section>
 
@@ -794,6 +915,29 @@ onBeforeUnmount(() => {
 }
 .gov-link:hover { color: var(--accent); }
 .gov-link:hover svg { transform: translateX(5px); }
+
+#disclosures,
+.ir-disc-grid .mf-card { scroll-margin-top: 120px; }
+.ir-disc .mf-icon svg { width: 20px; height: 20px; }
+.ir-disc-link { margin-top: 14px; padding-top: 12px; font-size: 0.82rem; }
+.ir-note {
+  margin-top: 26px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  text-align: center;
+}
+.ir-note a { color: var(--accent); font-weight: 600; }
+@media (max-width: 620px) {
+  .ir-disc-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+  .ir-disc .mf-index { display: none; }
+  .ir-disc.mf-card { padding: 18px 16px; grid-template-columns: 36px 1fr; gap: 12px; }
+  .ir-disc .mf-icon { width: 36px; height: 36px; }
+}
 .gov-docs {
   margin-top: 34px;
   background: var(--light);

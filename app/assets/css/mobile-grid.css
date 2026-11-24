@@ -1,0 +1,179 @@
+@media (max-width: 820px) {
+  .grid,
+  .cat-grid,
+  .cat-acc-grid,
+  .portfolio-grid,
+  .gallery,
+  .stats,
+  .hero-stats,
+  .pl-stats,
+  .bd-stats,
+  .about-stats-grid,
+  .about-pillars,
+  .bd-intro-grid,
+  .bd-row,
+  .bd-points,
+  .fin-grid,
+  .mf-grid,
+  .ipo-grid,
+  .gov-grid,
+  .glance-grid,
+  .ir-disc-grid,
+  .news-grid,
+  .reach-grid,
+  .map-grid,
+  .contact-cards,
+  .res-list,
+  .cert-strip,
+  .cert-strip .inner,
+  .trust,
+  .trust .inner,
+  .power-grid,
+  .power-grid .inner,
+  .gov-docs ul {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 14px !important;
+  }
+
+  .grid > *,
+  .cat-grid > *,
+  .gallery > *,
+  .stats > *,
+  .hero-stats > *,
+  .pl-stats > *,
+  .bd-stats > *,
+  .about-stats-grid > *,
+  .about-pillars > *,
+  .fin-grid > *,
+  .mf-grid > *,
+  .ipo-grid > *,
+  .gov-grid > *,
+  .glance-grid > *,
+  .reach-grid > *,
+  .map-grid > *,
+  .contact-cards > *,
+  .res-list > *,
+  .cert-strip > *,
+  .trust > *,
+  .power-grid > *,
+  .gov-docs ul > li {
+    flex: 1 1 calc(50% - 7px);
+    min-width: 0;
+    max-width: none;
+  }
+
+  .grid > .section-head,
+  .grid > .subsection-head,
+  .grid > .section-head.bd-list-head,
+  .grid > .page-head,
+  .grid > .pl-toolbar,
+  .grid > ul,
+  .grid > ol,
+  .grid > .grid,
+  .grid > .cat-grid,
+  .grid > .cat-acc-body,
+  .grid > .bd-row,
+  .bd-points > *,
+  .bd-row > *,
+  .ir-disc-grid > *,
+  .news-grid > * {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .cat-search {
+    flex: 0 0 auto !important;
+    max-width: none;
+  }
+
+  .subnav .container {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .glance-grid > *,
+  .reach-grid > *,
+  .map-grid > *,
+  .news-grid > *,
+  .ir-disc-grid > *,
+  .fin-grid > *,
+  .mf-grid > *,
+  .ipo-grid > *,
+  .gov-grid > *,
+  .res-list > *,
+  .contact-cards > *,
+  .about-pillars > *,
+  .power-grid > *,
+  .bd-intro-grid > *,
+  .grid > .card,
+  .grid > .feature-card,
+  .grid > .project-card,
+  .grid > .product-card,
+  .grid > .gov-card,
+  .grid > .res-card,
+  .grid > .sm-card,
+  .grid > .ed-card,
+  .grid > .p-lite-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .grid:has(> .card),
+  .grid:has(> .feature-card),
+  .grid:has(> .project-card),
+  .grid:has(> .product-card),
+  .grid:has(> .cat-card),
+  .grid:has(> .glance-card),
+  .grid:has(> .gov-card),
+  .grid:has(> .res-card),
+  .grid:has(> .sm-card),
+  .grid:has(> .accordion-card),
+  .grid:has(> .cat-acc-tab),
+  .grid:has(> .ed-card),
+  .grid:has(> .p-lite-card),
+  .grid:has(> .biddy-card),
+  .cat-grid {
+    gap: 12px;
+  }
+
+  .grid > .card .card-body,
+  .grid > .project-card .card-body,
+  .grid > .product-card .card-body,
+  .cat-grid .card .card-body,
+  .grid > .accordion-card .cat-acc-body,
+  .grid > .cat-card .cat-acc-body {
+    padding: 16px 14px 18px;
+  }
+
+  .grid > .card .card-body h3,
+  .grid > .project-card .card-body h3,
+  .grid > .product-card .card-body h3,
+  .cat-grid .card .card-body h3,
+  .grid > .accordion-card .cat-acc-head h3,
+  .grid > .cat-card .cat-acc-head h3,
+  .grid > .p-lite-card .p-lite-card-body h3,
+  .grid > .biddy-card .biddy-card-body h3,
+  .grid > .ed-card .ed-card-body h3 {
+    font-size: 0.95rem;
+    margin-bottom: 7px;
+  }
+
+  .grid > .card .card-body p,
+  .grid > .project-card .card-body p,
+  .grid > .product-card .card-body p,
+  .cat-grid .card .card-body p,
+  .grid > .accordion-card .cat-acc-body p,
+  .grid > .cat-card .cat-acc-body p,
+  .grid > .p-lite-card .p-lite-card-body p,
+  .grid > .biddy-card .biddy-card-body p,
+  .grid > .ed-card .ed-card-body p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}

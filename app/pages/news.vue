@@ -96,6 +96,7 @@ function playVideoFromEvent(e: Event) {
         </div>
 
       </div>
+      <p class="text-center mt-10 text-light-c">See more photos and videos in the <NuxtLink to="/media">media gallery</NuxtLink>, or read the <NuxtLink to="/investors-relation">investor relations</NuxtLink> disclosures.</p>
     </div>
   </section>
 </template>

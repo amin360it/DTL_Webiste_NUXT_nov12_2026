@@ -1,21 +1,46 @@
 <script setup lang="ts">
 useSeo({
   title: 'Anodizing Section',
-  description: 'Anodizing section - fully automated anodizing plant with Pulse rectifiers, film thickness 10-15 microns per AAMA standards.'
+  description: 'Know our automated anodizing plant offering smooth, durable finishes with 10-15 microns thickness for long-lasting, aesthetically pleasing aluminium profiles'
 })
+
+const heroBg = '/assets/img/aaa_766825653.jpg'
+
+const facts = [
+  { num: '01', label: 'Fully automated plant' },
+  { num: '02', label: 'Pulse rectifiers' },
+  { num: '03', label: 'AAMA standard compliance' },
+  { num: '04', label: '10–15 micron film thickness' },
+  { num: '05', label: 'Colour stability & durability' }
+]
+
+const gallery = [
+  { src: '/assets/img/aaa_7634-crop-u11783064d.png', alt: 'Fully automated anodizing plant with Pulse rectifiers' },
+  { src: '/assets/img/aaa_7668ece3.jpg', alt: 'Anodizing tank line' },
+  { src: '/assets/img/anodizing-01-crop-u10966066d.png', alt: 'Anodized aluminium profile finish sample' }
+]
 </script>
 
 <template>
-  <section class="page-hero">
+  <section class="page-hero mfg-hero">
+    <div class="mfg-hero-bg" style="background-image: url('/assets/img/aaa_766825653.jpg');"></div>
+    <div class="mfg-hero-overlay"></div>
     <div class="crumbs"><NuxtLink to="/">Home</NuxtLink> &raquo; <NuxtLink to="/manufacturing">Manufacturing</NuxtLink> &raquo; Anodizing</div>
     <div class="container">
-      <span class="kicker">Anodizing</span>
-      <h1>Anodizing Section</h1>
+      <span class="kicker">Step 05 — Surface Treatment</span>
+      <h1>Anodizing</h1>
+      <p class="hero-sub">A fully automated anodizing plant with Pulse rectifiers — delivering smooth, durable, colour-stable finishes that stand up to exterior use.</p>
+      <div class="hero-meta">
+        <span class="mfg-badge">Fully Automated Plant</span>
+        <span class="mfg-badge">Pulse Rectifiers</span>
+        <span class="mfg-badge">AAMA 611-98 Class 1</span>
+      </div>
     </div>
   </section>
 
-  <div class="subnav">
+  <div class="mfg-subnav">
     <div class="container">
+      <NuxtLink to="/manufacturing">Overview</NuxtLink>
       <NuxtLink to="/manufacturing-billet-casting">Casting</NuxtLink>
       <NuxtLink to="/manufacturing-extrusion-presses">Extruding</NuxtLink>
       <NuxtLink to="/manufacturing-aging-tempering-oven">Tempering</NuxtLink>
@@ -31,25 +56,37 @@ useSeo({
 
   <section class="section">
     <div class="container">
-      <div class="grid grid-2" style="align-items:center;">
-        <div>
-          <h2>Aesthetically Pleasing Finishes</h2>
-          <p>Anodizing is a process of finishing on aluminium in which the visual appearance of the metal is changed to be aesthetically pleasing. This visual appearance must have colour stability and durability, particularly for exterior use.</p>
-          <p>DHAKATHAI ALCOMAXX PLC&rsquo;s new fully automated anodizing plant uses the latest technology with <strong>Pulse rectifiers</strong> to give smooth surface finish with longevity and anodizes the aluminium sections according to the <em>&ldquo;American Architectural Manufacturing Association&rdquo;</em>, providing film thickness of <strong>10-15 microns</strong>.</p>
-          <div class="stats" style="grid-template-columns:repeat(3,1fr);margin-top:30px;">
-            <div class="stat"><div class="num">10-15</div><div class="label">Microns Film Thickness</div></div>
-            <div class="stat"><div class="num">Pulse</div><div class="label">Rectifier Technology</div></div>
-            <div class="stat"><div class="num">AAMA</div><div class="label">Standards Compliant</div></div>
+      <div class="mfg-page-body">
+        <div class="mfg-copy">
+          <span class="kicker">Anodizing Section</span>
+          <p>Anodizing is a finishing process on aluminium in which the visual appearance of the metal is changed to be aesthetically pleasing. This finish must have colour stability and durability — particularly for exterior use.</p>
+          <p>DHAKATHAI ALCOMAXX PLC's new fully automated anodizing plant uses the latest technology with Pulse rectifiers to give a smooth surface finish with longevity, and anodizes the aluminium sections according to the American Architectural Manufacturing Association (AAMA).</p>
+          <p>The result is a hard, corrosion-resistant oxide layer with a film thickness of 10–15 microns — providing both the protective performance and the refined look that architectural and industrial profiles demand.</p>
+          <div class="mfg-facts">
+            <div v-for="f in facts" :key="f.num" class="mfg-fact">
+              <span class="mfg-fact-num">{{ f.num }}</span>
+              <span>{{ f.label }}</span>
+            </div>
           </div>
         </div>
-        <img src="/assets/img/anodizing-01-crop-u10966066d.png" alt="Anodized aluminium profiles" style="border-radius:12px;box-shadow:var(--shadow-md);">
+
+        <div class="mfg-figure">
+          <picture>
+            <source media="(min-width: 768px)" srcset="/assets/img/aaa_7634-crop-u11783064d.png">
+            <img src="/assets/img/aaa_7634-crop-u11783064d.png" alt="Fully automated anodizing plant with Pulse rectifiers" loading="lazy">
+          </picture>
+          <figcaption class="mfg-cap">Fully automated anodizing plant with Pulse rectifiers</figcaption>
+        </div>
+      </div>
+
+      <h2 class="mfg-label">Anodized Coated Finishes</h2>
+      <div class="mfg-strip">
+        <ul>
+          <li v-for="img in gallery.slice(1)" :key="img.src">
+            <img :src="img.src" :alt="img.alt" loading="lazy">
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-@media (max-width: 1024px) {
-  .grid-2 { grid-template-columns: 1fr !important; }
-}
-</style>

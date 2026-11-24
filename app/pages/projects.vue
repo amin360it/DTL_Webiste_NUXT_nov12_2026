@@ -98,6 +98,7 @@ useSeo({
       <div class="text-center mt-10">
         <NuxtLink to="/projects-image" class="btn btn-primary">View Full Image Gallery</NuxtLink>
         <NuxtLink to="/projects-list" class="btn btn-dark">View Complete Project List</NuxtLink>
+        <NuxtLink to="/projects-video" class="btn btn-outline">Watch Project Videos</NuxtLink>
       </div>
     </div>
   </section>

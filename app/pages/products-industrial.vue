@@ -109,6 +109,17 @@ useSeo({
   <section class="section">
     <div class="container">
       <div class="section-head">
+        <span class="kicker">Drawings</span>
+        <h2>Industrial Profile Drawings</h2>
+        <p>Engineering drawings for the industrial sections most often requested by fabricators.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card"><CardPlaceholder /><div class="card-body"><h3>Textile</h3><p>Textile machinery sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/47-textile.pdf" target="_blank">Drawing</a></div></div>
+        <div class="card"><CardPlaceholder /><div class="card-body"><h3>Ladder</h3><p>Ladder &amp; step profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/48-ladder.pdf" target="_blank">Drawing</a></div></div>
+        <div class="card"><CardPlaceholder /><div class="card-body"><h3>AC Ducting</h3><p>HVAC duct profiles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/52-ac-ducting.pdf" target="_blank">Drawing</a></div></div>
+        <div class="card"><CardPlaceholder /><div class="card-body"><h3>Signboard</h3><p>Signboard &amp; display frames.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/54-signboard.pdf" target="_blank">Drawing</a></div></div>
+      </div>
+      <div class="section-head mt-10">
         <span class="kicker">Miscellaneous</span>
         <h2>Miscellaneous Industrial Sections</h2>
       </div>

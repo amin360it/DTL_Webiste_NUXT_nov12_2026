@@ -49,6 +49,8 @@ useSeo({
           <CardPlaceholder />
           <div class="card-body"><h3>Tower Bolt</h3><p>Security bolt sections.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/56-tower-bolt.pdf" target="_blank">Drawing</a></div>
         </div>
+        <div class="card"><CardPlaceholder /><div class="card-body"><h3>Sandwich Panel Fittings</h3><p>Panel connection systems.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/58-sandwich-panel-fittings.pdf" target="_blank">Drawing</a></div>
+        </div>
         <div class="card">
           <CardPlaceholder />
           <div class="card-body"><h3>Angles</h3><p>Equal &amp; unequal angles.</p><a class="btn btn-dark mt-2" href="/assets/pdfs/21-angles.pdf" target="_blank">Drawing</a></div>

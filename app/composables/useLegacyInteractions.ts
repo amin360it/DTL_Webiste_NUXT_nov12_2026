@@ -75,7 +75,7 @@ export function wirePageInteractions() {
       const target = e.target as HTMLElement | null
       if (!target || !target.closest) return
 
-      const thumb = target.closest('.video-thumb') as HTMLElement | null
+      const thumb = target.closest('.video-thumb, [data-video]') as HTMLElement | null
       if (thumb) {
         openVideo(thumb.getAttribute('data-video') || '', thumb.getAttribute('data-title') || 'Video')
         return

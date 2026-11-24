@@ -127,6 +127,7 @@ function playVideoFromEvent(e: Event) {
           <button class="video-thumb" @click="playVideoFromEvent" data-video="v4DBfMurQXA" data-title="Fabricator's Gift Program 2018"><img src="https://i.ytimg.com/vi/v4DBfMurQXA/hqdefault.jpg" alt="Fabricator's Gift Program 2018" loading="lazy"><span class="video-play"></span><span class="video-tag">Watch on YouTube</span></button>
         </div></div>
       </div>
+      <p class="text-center mt-10 text-light-c">Read the <NuxtLink to="/news">latest news</NuxtLink>, watch <NuxtLink to="/projects-video">project videos</NuxtLink> or see the <NuxtLink to="/3-min">3-minute introduction</NuxtLink>.</p>
     </div>
   </section>
 </template>

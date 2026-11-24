@@ -78,6 +78,7 @@ All paths relative to the project root.
 |---|---|
 | Config / meta | `nuxt.config.ts`, `package.json`, `app/app.vue`, `app/error.vue`, `public/robots.txt`, `public/sitemap.xml` |
 | Layout / chrome | `app/layouts/default.vue`, `app/components/SiteHeader.vue` (topbar + desktop nav + mobile drawer), `app/components/SiteFooter.vue` |
+| Footer | `app/components/SiteFooter.vue` — brand/social, Site Map (13), Products (7), Manufacturing (11 incl. ETP, Packaging, Warehousing & Delivery), Investors (full 13-item menu deep-linked into `/investors-relation#…`), Contact (offices + Factory overview) |
 | Modals | `app/components/LightboxModal.vue`, `app/components/PdfModal.vue`, `app/components/VideoModal.vue`, `app/composables/useModal.ts` |
 | Composable helpers | `app/composables/useLegacyInteractions.ts` (delegated lightbox / video / tabs / PDF / year + global image zoom), `app/composables/useSeo.ts` (canonical, robots, OG/Twitter, WebPage + Breadcrumb JSON-LD, Organization schema), `app/composables/useTheme.ts` (dark mode state) |
 | Styles | `app/assets/css/main.css` (verbatim port of `css/style.css` — do not edit), `app/assets/css/theme.css` (dark-theme overrides — edit this, not main.css), `DESIGN.md` (design system) |
@@ -309,11 +310,12 @@ The source `<title>` **already contains** the ` | DHAKATHAI ALCOMAXX PLC` suffix
 | `/enlisted-developer` | `pages\enlisted-developer.html` | `Enlisted Developers` | `List of enlisted developer companies partnered with DHAKATHAI ALCOMAXX PLC.` |
 | `/media` | `pages\media.html` | `Media Gallery` | `Media gallery - photos and videos of DHAKATHAI ALCOMAXX PLC events, expos and factory activities.` |
 | `/factory` | `pages\factory.html` | `Factory` | `DHAKATHAI ALCOMAXX PLC factory - Burirpara, East Norshinghpur, Ashulia, Savar, Dhaka.` |
+| `/3-min` | old site `3-min.html` | `Introduction in 3 Minutes` | `Watch a three-minute introduction to DHAKATHAI ALCOMAXX PLC - our factory, eight extrusion presses and aluminium profile range.` |
 | `/resources` | *(no source page)* | `Resources` | `DHAKATHAI ALCOMAXX PLC resources - catalogues, DIE drawings, investor documents, dealer network and company information in one place.` |
 | `/disclaimer` | *(no source page)* | `Disclaimer` | `Disclaimer for the DHAKATHAI ALCOMAXX PLC website - information accuracy, product specifications, intellectual property and liability.` |
 | `/privacy-policy` | *(no source page)* | `Privacy Policy` | `Privacy policy of DHAKATHAI ALCOMAXX PLC - what information this website collects, how it is used, cookies and your rights.` |
 
-**Total: 38 routes** (including `/`) plus `/sitemap` — 39 page components in `app/pages/`. The footer's `Resources | Disclaimer | Privacy Policy | Sitemap` line now links to these pages (all four previously pointed at `/` or `/sitemap`).
+**Total: 39 ported page routes** (including `/`) plus `/sitemap` and `/3-min` — 41 page components in `app/pages/`. `/3-min` is the old Muse site's standalone "Introduction in 3 minutes" video page (the new design only has that video as a home-page modal). The footer's `Resources | Disclaimer | Privacy Policy | Sitemap` line now links to these pages (all four previously pointed at `/` or `/sitemap`).
 
 `/factory` is **orphaned in the source** — no page, nav item or footer link points to `factory.html` — but it is a real, fully-built source page (title, meta, images, gallery), so it is ported for completeness and left unlinked, exactly as the source has it.
 
@@ -419,6 +421,7 @@ Section order is fixed and must be kept: **Where To Reach Us → Find Us → Inv
 - Order: IPO documents (3 cards) → `#glance` financial stat cards + `mf-head` ("IPO & market parameters") over the 8-card fact grid → `#governance` cards + Investor Resources panel → navy contact band (`.ir-box`: mailto + phone).
 - The Investor Resources panel lists all **13** entries of the original site's investor menu (`investorResources` in the page script): Prospectus, IPO Application Result, IPO Fund Utilization, Financial Report, Price Sensitive Information, Corporate Governance Compliance, Directors Report, Annual Report, Details of Shareholding, EGM, AGM, Dividend, Investors Contact. Only three of these exist as files in `public/assets/pdfs/` (prospectus, share distribution, catalogue) so those are the `PDF` rows; the rest carry a type badge (`Announcement`, `Highlights`, `Contact`) and link to the real page/section (`/news`, `#glance`, `/contact#investor-relations`) rather than inventing documents. Type is chosen per entry via an inline SVG icon string.
 - The contact band is wrapped in a `.container` (not `container ir-box` on one element) so the card keeps the page gutter on phones; below 900 px it becomes a column with `width: 100%` actions.
+- `#disclosures` (added after `#governance`, before the contact band) carries the ten investor-menu items that have no document file yet (`Annual Report`, `Financial Report`, `Directors Report`, `Dividend`, `AGM`, `EGM`, `Details of Shareholding`, `Price Sensitive Information`, `IPO Application Result`, `IPO Fund Utilization`) as `.mf-card` rows with a stable `id` each (`#annual-report`, `#dividend`, `#agm`, `#egm`, …). Each row has a `gov-link` action that points at the real destination (a page, a PDF, or a section anchor), and the section closes with an `.ir-note` giving the investors e-mail/phone. Copy describes what each disclosure covers — no figures or documents are invented. The `investorResources` list and the footer's Investors column both deep-link to these ids. `.ir-disc-grid` is forced back to one column at ≤620 px (paragraph cards are unreadable two-up on a phone) and `.ir-disc .mf-index` is hidden there to stop the number colliding with a wrapped title.
 
 ### `investors-relation.vue` — market facts (2026-11-14)
 

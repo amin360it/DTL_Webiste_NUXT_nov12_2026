@@ -39,7 +39,14 @@ export default defineNuxtConfig({
       siteUrl: 'https://dhakathaibd.com'
     }
   },
-  css: ['~/assets/css/main.css', '~/assets/css/theme.css'],
+  css: [
+    'bootstrap/dist/css/bootstrap-grid.min.css',
+    '~/assets/css/main.css',
+    '~/assets/css/mobile-grid.css',
+    '~/assets/css/motion.css',
+    '~/assets/css/manufacturing.css',
+    '~/assets/css/theme.css'
+  ],
   nitro: {
     output: {
       publicDir: 'dist'

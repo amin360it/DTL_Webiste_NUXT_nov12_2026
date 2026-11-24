@@ -213,11 +213,29 @@ onBeforeUnmount(() => {
         </table>
       </div>
 
+      <p class="dealer-note">
+        Working on a project? See our <NuxtLink to="/enlisted-developer">enlisted developers</NuxtLink>,
+        browse the <NuxtLink to="/products">product ranges</NuxtLink>, or
+        <NuxtLink to="/contact">contact our sales team</NuxtLink>.
+      </p>
+
     </div>
   </section>
 </template>
 
 <style scoped>
+.dealer-note {
+  margin: 26px 0 0;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--text-light);
+}
+
+.dealer-note a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 @media (max-width: 1024px) {
   .dealer-table th, .dealer-table td {
     padding: 8px 4px;

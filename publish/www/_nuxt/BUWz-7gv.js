@@ -1,1 +1,0 @@
-import{n as e}from"#entry";var t=e(`/assets/img/processing v4402x214871c.jpg`);export{t};

@@ -1,0 +1,113 @@
+AI_MEMORY.DAT
+=============
+Project: DHAKATHAI ALCOMAXX PLC website - Nuxt 4 static site (port of the static HTML site in src/)
+Root: D:/__WORKING_Project/DTL_Webiste_NUXT
+Last updated: 2026-11-21
+
+1. WHAT THIS PROJECT IS
+-----------------------
+Nuxt 4.5.2 SSG port of the company website. `npm run generate` writes a static
+site to `dist/` (nitro.output.publicDir = 'dist'). The deployed copy lives in
+`publish/www/` (mirror of dist). Source design files live in `src/` (new site)
+and `D:/__WORKING_Project/DTL_Webiste/DTL_old/...` (old Adobe Muse site, used
+only as a content reference; its 80+ .html files are ~36 real pages plus
+"*50d5.html" duplicates and renamed jQuery/Muse library files).
+
+2. ARCHITECTURE
+---------------
+- app/app.vue, app/layouts/default.vue (header + main + footer + modals + BackToTop)
+- app/components/: SiteHeader, SiteFooter, LightboxModal, PdfModal, VideoModal,
+  BangladeshMap, ProductProfiles, CatalogCard, CardPlaceholder, BackToTop
+- app/composables/: useModal, useLegacyInteractions (delegated clicks: lightbox,
+  video, tabs, PDF, image zoom), useSeo (canonical/OG/JSON-LD), useTheme
+- app/data/: catalog.ts (2,110 profiles), productBuckets.ts, dealers.ts,
+  divisionDealers.ts (290 map contacts), routeContacts.ts (182 rows),
+  projects.ts (198), projectGallery.ts (37), developers.ts (506), directors.ts (9)
+- app/assets/css/main.css  = verbatim copy of src/css/style.css - DO NOT EDIT
+- app/assets/css/mobile-grid.css = added global mobile 2-col flex system
+- app/assets/css/theme.css = dark mode overrides - edit this, not main.css
+- nuxt.config.ts css order: main.css -> mobile-grid.css -> theme.css
+
+3. ROUTES (42)
+--------------
+/ /about /board-of-directors /career /catalogue /contact /dealer-list
+/disclaimer /enlisted-developer /factory /investors-relation /manufacturing
+/manufacturing-{billet-casting,extrusion-presses,aging-tempering-oven,
+anodizing-section,powder-coating-plant,wooden-finish,quality-inspection,
+packaging,warehousing-and-delivery,etp} /media /news /online-catalogue
+/privacy-policy /products /products-{architectural,industrial,furniture,
+hardware,electrical,others} /projects /projects-{image,list,video} /resources
+/sitemap /3-min
+
+4. CONVENTIONS
+--------------
+- Page-local CSS goes in <style scoped>; shared overrides only in theme.css
+  (dark mode) or mobile-grid.css (responsive). Never edit main.css.
+- Dark-mode: html[data-theme='light'|'dark']; never use :global(html[...]) in a
+  scoped SFC (it collapses the page); add new light-surface classes to theme.css.
+- Mobile: card/stat grids become 2-up flex at <=820px (flex:1 1 45%, min-width:0).
+  Long-form paragraph cards intentionally stay single column (news article cards,
+  investor disclosure cards <=620px).
+- All internal links = NuxtLink; assets use a leading slash; PDFs open in a new tab.
+- Every page sets title/description with useSeo(...); home overrides titleTemplate.
+
+5. RECENT WORK (Nov 2026 session)
+---------------------------------
+a) Site-wide mobile 2-col flex grid system -> app/assets/css/mobile-grid.css
+   (registered in nuxt.config.ts). Home Key Features + Our Standards converted
+   from CSS grid to flex; card padding/type tightened at <=620px.
+b) Footer (app/components/SiteFooter.vue) rebuilt as the complete site map:
+   brand + 6 link columns (Company, Products, Projects + Manufacturing under one
+   head, Investors, Contact) and a bottom bar with Resources | Disclaimer |
+   Privacy Policy | Sitemap. Every one of the 42 routes is linked from the footer.
+   Footer grid is overridden in the component's scoped CSS (6 cols >=1181px,
+   4 cols 821-1180px, 2 cols <=820px, 1 col <=360px).
+c) /investors-relation: new #disclosures section with 10 anchored cards
+   (#annual-report, #financial-report, #directors-report, #dividend, #agm, #egm,
+   #details-of-shareholding, #price-sensitive, #ipo-application-result,
+   #ipo-fund-utilization). Copy is descriptive; no figures/documents were invented.
+   The Governance resources list and the footer deep-link to these anchors.
+d) Product pages now link every one of the 65 catalogue drawings:
+   - architectural: split combined cards into individual Stick Wall 50/65/81/101/115,
+     Semi Unitized CWN/WWN/WWA/SL/WCG/120, added 3" Fixed Frame (76mm) and
+     4" Fixed Frame (91mm) cards.
+   - industrial: new "Industrial Profile Drawings" section (Textile, Ladder,
+     AC Ducting, Signboard).
+   - hardware: added Sandwich Panel Fittings card.
+   - furniture: added Washroom Door & Door Handle card.
+   Verified: 0 catalogue PDFs are unlinked from the six product pages.
+e) New page /3-min (app/pages/3-min.vue): standalone "Introduction in 3 Minutes"
+   video page (YouTube i0f2fi61ow0), linked from the footer Company column.
+
+f) Manufacturing navigation completed: /manufacturing and all 10 process pages now
+   share the same 11-item process strip (Overview + Casting, Extruding, Tempering,
+   Anodizing, Powder Coating, Wooden Finish, Quality, Packaging, Warehousing, ETP),
+   with the current page marked .active. The overview page previously had no strip
+   and the process pages omitted the Overview link. The flow tile "Video" used to
+   link back to /manufacturing itself; it is now a <button data-video="3kjoNHvzNrU">
+   that opens the manufacturing video modal (useLegacyInteractions now matches
+   `.video-thumb, [data-video]`). mobile-grid.css lets the process strip wrap
+   instead of scrolling sideways at <=820px.
+
+6. COMMANDS
+-----------
+npm run dev            # dev server
+npm run generate       # static build -> dist/ (expect exit 0)
+rm -rf publish/www/* && cp -r dist/. publish/www/   # mirror deployed copy
+node scripts/build-catalog-data.mjs                 # regenerate catalog.ts from CSV
+node scripts/build-division-data.cjs                # regenerate divisionDealers.ts
+node scripts/build-sitemap.mjs                      # regenerate public/sitemap.xml
+
+7. GOTCHAS
+----------
+- Windows + Git Bash: prefix commands with `export MSYS_NO_PATHCONV=1` when a
+  value starts with "/" (otherwise / becomes C:/Program Files/Git/).
+- Chrome for verification: C:/Program Files/Google/Chrome/Application/chrome.exe
+  (headless + CDP over ws from node_modules/ws). Serve dist on a local port;
+  full-page screenshots of heavy pages can crash the ws client - use viewport shots.
+- The old site's footer labels (Melting, Extruding, Pipes & Hollow Tubes, At A Glance)
+  do not all map to pages; use the real routes instead.
+- /products-furniture keeps the source's broken image path verbatim (pre-existing
+  source defect); /enlisted-developer holds 506 de-duplicated companies.
+- main.css and the source design are the source of truth for visuals; the changes
+  above are additive content/footer/responsive work, not a redesign.

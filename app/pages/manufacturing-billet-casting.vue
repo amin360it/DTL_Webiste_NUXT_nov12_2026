@@ -1,21 +1,47 @@
 <script setup lang="ts">
 useSeo({
   title: 'Billet Casting',
-  description: 'Billet casting section - continuous casting billet furnace with hot top technology by DHAKATHAI ALCOMAXX PLC.'
+  description: 'Know our billet casting process using continuous casting with hot top technology, ensuring high-quality billets through energy-efficient, eco-friendly methods.'
 })
+
+const heroBg = '/assets/img/img_1484-crop-u9463b5ab.png'
+
+const facts = [
+  { num: '01', label: 'Continuous casting' },
+  { num: '02', label: 'Hot top technology' },
+  { num: '03', label: 'Imported ingots' },
+  { num: '04', label: 'Heat-regenerating burner' },
+  { num: '05', label: 'Proper homogenization' },
+  { num: '06', label: 'Blemish-free quality' }
+]
+
+const gallery = [
+  { src: '/assets/img/img_1491.jpg', alt: 'Continuous casting billet furnace with hot top technology' },
+  { src: '/assets/img/img_1689-crop-u6212503cb.png', alt: 'Billet casting furnace interior' },
+  { src: '/assets/img/img_1690-crop-u42859197d.png', alt: 'Casting process close-up' }
+]
 </script>
 
 <template>
-  <section class="page-hero">
+  <section class="page-hero mfg-hero">
+    <div class="mfg-hero-bg" :style="`background-image: url('${heroBg}')`"></div>
+    <div class="mfg-hero-overlay"></div>
     <div class="crumbs"><NuxtLink to="/">Home</NuxtLink> &raquo; <NuxtLink to="/manufacturing">Manufacturing</NuxtLink> &raquo; Billet Casting</div>
     <div class="container">
-      <span class="kicker">Casting</span>
-      <h1>Billet Casting Section</h1>
+      <span class="kicker">Step 01–02 — Raw Material</span>
+      <h1>Billet Casting</h1>
+      <p class="hero-sub">The foundation of every profile — where imported aluminium ingots become precision billets, ready for extrusion.</p>
+      <div class="hero-meta">
+        <span class="mfg-badge">Continuous casting furnace</span>
+        <span class="mfg-badge">Hot top technology</span>
+        <span class="mfg-badge">Eco-friendly burners</span>
+      </div>
     </div>
   </section>
 
-  <div class="subnav">
+  <div class="mfg-subnav">
     <div class="container">
+      <NuxtLink to="/manufacturing">Overview</NuxtLink>
       <NuxtLink to="/manufacturing-billet-casting" class="active">Casting</NuxtLink>
       <NuxtLink to="/manufacturing-extrusion-presses">Extruding</NuxtLink>
       <NuxtLink to="/manufacturing-aging-tempering-oven">Tempering</NuxtLink>
@@ -31,27 +57,37 @@ useSeo({
 
   <section class="section">
     <div class="container">
-      <div class="grid grid-2" style="align-items:center;">
-        <div>
-          <h2>A Continuous Casting Billet Furnace</h2>
-          <p>A continuous casting billet furnace with hot top technology furnace; we use imported ingots to produce billets of various diameters.</p>
-          <p>This latest casting technology is linked to the eco-friendly heat regenerating burner system to enhance energy conservation and to ensure proper homogenization of the billet thus guaranteeing the best quality products without any blemishes.</p>
-          <ul class="check-list mt-4">
-            <li>Hot top technology for prime quality billets</li>
-            <li>Imported primary quality ingots</li>
-            <li>Various billet diameters produced</li>
-            <li>Eco-friendly heat regenerating burner system</li>
-            <li>Proper homogenization - blemish-free products</li>
-          </ul>
+      <div class="mfg-page-body">
+        <div class="mfg-copy">
+          <span class="kicker">Billet Casting Section</span>
+          <p>A continuous casting billet furnace with hot top technology — we use imported ingots to produce billets of various diameters, the raw material for every profile we extrude.</p>
+          <p>This latest casting technology is linked to the eco-friendly heat-regenerating burner system to enhance energy conservation and to ensure proper homogenization of the billet — guaranteeing the best quality products without any blemishes.</p>
+          <p>The hot top technology minimizes oxidation and segregation during solidification, producing dense, uniform billets with consistent mechanical properties. Every billet that leaves this section meets the tight dimensional tolerances required by our extrusion presses downstream.</p>
+          <div class="mfg-facts">
+            <div v-for="f in facts" :key="f.num" class="mfg-fact">
+              <span class="mfg-fact-num">{{ f.num }}</span>
+              <span>{{ f.label }}</span>
+            </div>
+          </div>
         </div>
-        <img src="/assets/img/processing v4a8ba.jpg" alt="Billet casting furnace" style="border-radius:12px;box-shadow:var(--shadow-md);">
+
+        <div class="mfg-figure">
+          <picture>
+            <source media="(min-width: 768px)" :srcset="gallery[0].src">
+            <img :src="gallery[0].src" :alt="gallery[0].alt" loading="lazy">
+          </picture>
+          <figcaption class="mfg-cap">{{ gallery[0].alt }}</figcaption>
+        </div>
+      </div>
+
+      <h2 class="mfg-label">The Casting Floor</h2>
+      <div class="mfg-strip">
+        <ul>
+          <li v-for="img in gallery.slice(1)" :key="img.src">
+            <img :src="img.src" :alt="img.alt" loading="lazy">
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-@media (max-width: 1024px) {
-  .grid-2 { grid-template-columns: 1fr !important; }
-}
-</style>

@@ -315,6 +315,8 @@ onBeforeUnmount(() => {
 @media (max-width: 820px) {
   .nav { justify-content: flex-start; }
   .brand { margin-right: auto; }
+  .brand-text { display: none; }
+  .brand img { height: 38px; }
   .theme-toggle { width: 34px; height: 34px; flex: 0 0 34px; order: 1; margin: 0 10px 0 0; }
   .theme-toggle svg { width: 17px; height: 17px; }
   .nav-toggle { order: 2; }
