@@ -16,7 +16,7 @@ const pageName = computed(() => (currentPath.value === '/' ? 'index.html' : curr
 const sectionPaths: Record<string, string[]> = {
   products: ['products-architectural', 'products-industrial', 'products-furniture', 'products-hardware', 'products-electrical', 'products-others', 'online-catalogue', 'catalogue'],
   projects: ['projects-image', 'projects-list', 'projects-video'],
-  manufacturing: ['manufacturing-billet-casting', 'manufacturing-extrusion-presses', 'manufacturing-aging-tempering-oven', 'manufacturing-anodizing-section', 'manufacturing-powder-coating-plant', 'manufacturing-wooden-finish', 'manufacturing-etp', 'manufacturing-quality-inspection', 'manufacturing-packaging', 'manufacturing-warehousing-and-delivery'],
+  manufacturing: ['manufacturing-billet-casting', 'manufacturing-extrusion-presses', 'manufacturing-aging-tempering-oven', 'manufacturing-anodizing-section', 'manufacturing-powder-coating-plant', 'manufacturing-wooden-finish', 'manufacturing-etp', 'manufacturing-environment', 'manufacturing-quality-inspection', 'manufacturing-packaging', 'manufacturing-warehousing-and-delivery'],
   investors: ['board-of-directors']
 }
 
@@ -219,6 +219,7 @@ onBeforeUnmount(() => {
               <NuxtLink to="/manufacturing-quality-inspection" @click="closeMenus">Quality Inspection</NuxtLink>
               <NuxtLink to="/manufacturing-packaging" @click="closeMenus">Packaging</NuxtLink>
               <NuxtLink to="/manufacturing-warehousing-and-delivery" @click="closeMenus">Warehousing &amp; Delivery</NuxtLink>
+              <NuxtLink to="/manufacturing-environment" @click="closeMenus">Protecting Our Environment</NuxtLink>
             </div></div>
           </li>
 

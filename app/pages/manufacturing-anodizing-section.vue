@@ -14,6 +14,11 @@ const facts = [
   { num: '05', label: 'Colour stability & durability' }
 ]
 
+const paragraphs = [
+  'Anodizing is a process of finishing on aluminium in which the visual appearance of the metal is changed to be aesthetically pleasing. This visual appearance must have colour stability and durability, particularly for exterior use.',
+  'DHAKATHAI ALCOMAXX PLC\'s new fully automated anodizing plant uses the latest technology with Pulse rectifiers to give smooth surface finish with longevity and anodizes the aluminium sections according to the "American Architectural Manufacturing Association"; providing Film Thickness of 10 -15 M of Microns.'
+]
+
 const gallery = [
   { src: '/assets/img/aaa_7634-crop-u11783064d.png', alt: 'Fully automated anodizing plant with Pulse rectifiers' },
   { src: '/assets/img/aaa_7668ece3.jpg', alt: 'Anodizing tank line' },
@@ -23,13 +28,13 @@ const gallery = [
 
 <template>
   <section class="page-hero mfg-hero">
-    <div class="mfg-hero-bg" style="background-image: url('/assets/img/aaa_766825653.jpg');"></div>
+    <div class="mfg-hero-bg" :style="`background-image: url('${heroBg}')`"></div>
     <div class="mfg-hero-overlay"></div>
     <div class="crumbs"><NuxtLink to="/">Home</NuxtLink> &raquo; <NuxtLink to="/manufacturing">Manufacturing</NuxtLink> &raquo; Anodizing</div>
     <div class="container">
       <span class="kicker">Step 05 — Surface Treatment</span>
       <h1>Anodizing</h1>
-      <p class="hero-sub">A fully automated anodizing plant with Pulse rectifiers — delivering smooth, durable, colour-stable finishes that stand up to exterior use.</p>
+      <p class="hero-sub">Anodizing is a process of finishing on aluminium in which the visual appearance of the metal is changed to be aesthetically pleasing. This visual appearance must have colour stability and durability, particularly for exterior use.</p>
       <div class="hero-meta">
         <span class="mfg-badge">Fully Automated Plant</span>
         <span class="mfg-badge">Pulse Rectifiers</span>
@@ -38,55 +43,28 @@ const gallery = [
     </div>
   </section>
 
-  <div class="mfg-subnav">
-    <div class="container">
-      <NuxtLink to="/manufacturing">Overview</NuxtLink>
-      <NuxtLink to="/manufacturing-billet-casting">Casting</NuxtLink>
-      <NuxtLink to="/manufacturing-extrusion-presses">Extruding</NuxtLink>
-      <NuxtLink to="/manufacturing-aging-tempering-oven">Tempering</NuxtLink>
-      <NuxtLink to="/manufacturing-anodizing-section" class="active">Anodizing</NuxtLink>
-      <NuxtLink to="/manufacturing-powder-coating-plant">Powder Coating</NuxtLink>
-      <NuxtLink to="/manufacturing-wooden-finish">Wooden Finish</NuxtLink>
-      <NuxtLink to="/manufacturing-quality-inspection">Quality</NuxtLink>
-      <NuxtLink to="/manufacturing-packaging">Packaging</NuxtLink>
-      <NuxtLink to="/manufacturing-warehousing-and-delivery">Warehousing</NuxtLink>
-      <NuxtLink to="/manufacturing-etp">ETP</NuxtLink>
-    </div>
-  </div>
+  <ManufacturingSubnav active="/manufacturing-anodizing-section" />
 
-  <section class="section">
-    <div class="container">
-      <div class="mfg-page-body">
-        <div class="mfg-copy">
-          <span class="kicker">Anodizing Section</span>
-          <p>Anodizing is a finishing process on aluminium in which the visual appearance of the metal is changed to be aesthetically pleasing. This finish must have colour stability and durability — particularly for exterior use.</p>
-          <p>DHAKATHAI ALCOMAXX PLC's new fully automated anodizing plant uses the latest technology with Pulse rectifiers to give a smooth surface finish with longevity, and anodizes the aluminium sections according to the American Architectural Manufacturing Association (AAMA).</p>
-          <p>The result is a hard, corrosion-resistant oxide layer with a film thickness of 10–15 microns — providing both the protective performance and the refined look that architectural and industrial profiles demand.</p>
-          <div class="mfg-facts">
-            <div v-for="f in facts" :key="f.num" class="mfg-fact">
-              <span class="mfg-fact-num">{{ f.num }}</span>
-              <span>{{ f.label }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mfg-figure">
-          <picture>
-            <source media="(min-width: 768px)" srcset="/assets/img/aaa_7634-crop-u11783064d.png">
-            <img src="/assets/img/aaa_7634-crop-u11783064d.png" alt="Fully automated anodizing plant with Pulse rectifiers" loading="lazy">
-          </picture>
-          <figcaption class="mfg-cap">Fully automated anodizing plant with Pulse rectifiers</figcaption>
-        </div>
+  <ManufacturingStory
+    label="How anodizing protects aluminium"
+    :paragraphs="paragraphs"
+    :facts="facts"
+    facts-label="Anodizing At A Glance"
+    :image="gallery[0].src"
+    :image-alt="gallery[0].alt"
+    :caption="gallery[0].alt"
+  >
+    <h2 class="mfg-label mfg-label-spaced">Anodized Coated Finishes</h2>
+    <figure class="mfg-bottom-figure mfg-bottom-figure--fit">
+      <img :src="gallery[gallery.length - 1].src" :alt="gallery[gallery.length - 1].alt" loading="lazy">
+      <figcaption>{{ gallery[gallery.length - 1].alt }}</figcaption>
+    </figure>
+    <NuxtLink to="/manufacturing-powder-coating-plant" class="mfg-next-card">
+      <div>
+        <h3>Next: Powder Coating</h3>
+        <p>Electrostatic powder coating for durable finish in multiple colors</p>
       </div>
-
-      <h2 class="mfg-label">Anodized Coated Finishes</h2>
-      <div class="mfg-strip">
-        <ul>
-          <li v-for="img in gallery.slice(1)" :key="img.src">
-            <img :src="img.src" :alt="img.alt" loading="lazy">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <span class="mfg-next-arrow" aria-hidden="true">→</span>
+    </NuxtLink>
+  </ManufacturingStory>
 </template>

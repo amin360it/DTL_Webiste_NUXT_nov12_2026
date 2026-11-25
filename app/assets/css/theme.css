@@ -439,11 +439,11 @@ html[data-theme='dark'] .mfg-hero .crumbs a.router-link-active {
   color: var(--accent-light);
 }
 html[data-theme='dark'] .mfg-hero h1 { color: #fff; }
-html[data-theme='dark'] .mfg-hero .hero-sub { color: rgba(255, 255, 255, 0.55); }
+html[data-theme='dark'] .mfg-hero .hero-sub { color: rgba(255, 255, 255, 0.78); }
 html[data-theme='dark'] .mfg-hero .mfg-badge {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 html[data-theme='dark'] .mfg-page-body { background: transparent; }
@@ -566,6 +566,39 @@ html[data-theme='dark'] .mfg-fact .mfg-fact-num {
   background: var(--accent);
   color: #0d0d0d;
 }
+
+html[data-theme='dark'] .mfg-card-stage,
+html[data-theme='dark'] .mfg-card-target {
+  color: var(--accent-light);
+}
+html[data-theme='dark'] .mfg-card-num[data-odd='true'] .mfg-card-num-inner {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: #f2f2f2;
+}
+html[data-theme='dark'] .mfg-flow-chart {
+  background: var(--surface);
+  border-color: var(--line);
+}
+html[data-theme='dark'] .mfg-flow-chart figcaption { color: var(--text-light); }
+html[data-theme='dark'] .mfg-wide-figure {
+  background: var(--surface);
+  border-color: var(--line);
+}
+html[data-theme='dark'] .mfg-bottom-figure {
+  background: var(--surface);
+  border-color: var(--line);
+}
+html[data-theme='dark'] .mfg-story-card,
+html[data-theme='dark'] .mfg-fact-card {
+  background: var(--surface);
+  border-color: var(--line);
+}
+html[data-theme='dark'] .mfg-story-card p { color: var(--text-light); }
+html[data-theme='dark'] .mfg-fact-card-num {
+  background: rgba(5, 166, 75, 0.18);
+  color: var(--accent-light);
+}
+html[data-theme='dark'] .mfg-fact-card-label { color: var(--text); }
 
 @media (max-width: 820px) {
   .nav-menu { background: linear-gradient(168deg, rgba(13, 13, 13, 0.97) 0%, rgba(13, 13, 13, 0.99) 100%); }

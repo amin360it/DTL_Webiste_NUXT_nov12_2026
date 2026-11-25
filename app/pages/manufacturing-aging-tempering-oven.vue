@@ -14,6 +14,10 @@ const facts = [
   { num: '05', label: 'Uniform heat distribution' }
 ]
 
+const paragraphs = [
+  'The ovens are equipped with PLC controlled sensors, using the centrifugal aerodynamic system provide temperature stabilization for hardness up to 15 Webster.'
+]
+
 const gallery = [
   { src: '/assets/img/aaa_7583-crop-u1174570bd.png', alt: 'Aging tempering oven interior' },
   { src: '/assets/img/aaa_7583-crop-u1174570bd.png', alt: 'Tempering oven control panel' }
@@ -28,7 +32,7 @@ const gallery = [
     <div class="container">
       <span class="kicker">Step 04 — Heat Treatment</span>
       <h1>Tempering</h1>
-      <p class="hero-sub">Precision heat treatment that gives every extruded profile its final mechanical properties — hardness, strength and dimensional stability.</p>
+      <p class="hero-sub">The ovens are equipped with PLC controlled sensors, using the centrifugal aerodynamic system provide temperature stabilization for hardness up to 15 Webster.</p>
       <div class="hero-meta">
         <span class="mfg-badge">PLC Controlled Sensors</span>
         <span class="mfg-badge">Centrifugal Aerodynamic System</span>
@@ -37,55 +41,28 @@ const gallery = [
     </div>
   </section>
 
-  <div class="mfg-subnav">
-    <div class="container">
-      <NuxtLink to="/manufacturing">Overview</NuxtLink>
-      <NuxtLink to="/manufacturing-billet-casting">Casting</NuxtLink>
-      <NuxtLink to="/manufacturing-extrusion-presses">Extruding</NuxtLink>
-      <NuxtLink to="/manufacturing-aging-tempering-oven" class="active">Tempering</NuxtLink>
-      <NuxtLink to="/manufacturing-anodizing-section">Anodizing</NuxtLink>
-      <NuxtLink to="/manufacturing-powder-coating-plant">Powder Coating</NuxtLink>
-      <NuxtLink to="/manufacturing-wooden-finish">Wooden Finish</NuxtLink>
-      <NuxtLink to="/manufacturing-quality-inspection">Quality</NuxtLink>
-      <NuxtLink to="/manufacturing-packaging">Packaging</NuxtLink>
-      <NuxtLink to="/manufacturing-warehousing-and-delivery">Warehousing</NuxtLink>
-      <NuxtLink to="/manufacturing-etp">ETP</NuxtLink>
-    </div>
-  </div>
+  <ManufacturingSubnav active="/manufacturing-aging-tempering-oven" />
 
-  <section class="section">
-    <div class="container">
-      <div class="mfg-page-body">
-        <div class="mfg-copy">
-          <span class="kicker">Aging Tempering Oven</span>
-          <p>The ovens are equipped with PLC controlled sensors; using the centrifugal aerodynamic system, they provide temperature stabilization for hardness up to 15 Webster.</p>
-          <p>Every extruded profile passes through this heat treatment stage. The PLC-controlled environment ensures each batch receives exactly the temperature profile and dwell time required for its alloy and dimensions — delivering consistent, repeatable mechanical properties batch after batch.</p>
-          <p>The centrifugal aerodynamic system distributes heated air evenly throughout the oven chamber, eliminating cold spots and ensuring uniform properties across every metre of extrusion — critical for long architectural profiles where consistency matters.</p>
-          <div class="mfg-facts">
-            <div v-for="f in facts" :key="f.num" class="mfg-fact">
-              <span class="mfg-fact-num">{{ f.num }}</span>
-              <span>{{ f.label }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mfg-figure">
-          <picture>
-            <source media="(min-width: 768px)" :srcset="gallery[0].src">
-            <img :src="gallery[0].src" :alt="gallery[0].alt" loading="lazy">
-          </picture>
-          <figcaption class="mfg-cap">{{ gallery[0].alt }}</figcaption>
-        </div>
+  <ManufacturingStory
+    label="How tempering works"
+    :paragraphs="paragraphs"
+    :facts="facts"
+    facts-label="Heat Treatment At A Glance"
+    :image="gallery[0].src"
+    :image-alt="gallery[0].alt"
+    :caption="gallery[0].alt"
+  >
+    <h2 class="mfg-label mfg-label-spaced">The Tempering Floor</h2>
+    <figure class="mfg-bottom-figure">
+      <img :src="gallery[gallery.length - 1].src" :alt="gallery[gallery.length - 1].alt" loading="lazy">
+      <figcaption>{{ gallery[gallery.length - 1].alt }}</figcaption>
+    </figure>
+    <NuxtLink to="/manufacturing-anodizing-section" class="mfg-next-card">
+      <div>
+        <h3>Next: Anodizing</h3>
+        <p>Electrolytic passivation to increase corrosion resistance and finish</p>
       </div>
-
-      <h2 class="mfg-label">The Tempering Floor</h2>
-      <div class="mfg-strip">
-        <ul>
-          <li v-for="img in gallery.slice(1)" :key="img.src">
-            <img :src="img.src" :alt="img.alt" loading="lazy">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <span class="mfg-next-arrow" aria-hidden="true">→</span>
+    </NuxtLink>
+  </ManufacturingStory>
 </template>

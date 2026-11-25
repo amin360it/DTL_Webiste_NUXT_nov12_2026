@@ -1,1 +1,0 @@
-import{c as e}from"#entry";var t=e(`/assets/img/dtl-catalog-2024-cover2b4d.png`),n=e(`/assets/img/standard profiles pictureb1d6.jpg`);export{t as n,n as t};

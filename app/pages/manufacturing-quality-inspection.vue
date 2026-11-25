@@ -15,6 +15,12 @@ const facts = [
   { num: '05', label: 'BS 3987 / ASTM standards' }
 ]
 
+const paragraphs = [
+  'Each product is checked by our quality inspectors placed at every finishing line to ensure only those profiles meeting the assured quality is sent to the packaging department.',
+  'Our manufacturing is done in accordance with BS - 1474, AS TM - B221, BS - 3987.',
+  'The aluminium sections are anodized according to "American Architectural Manufacturing Association" (AAMA). Anodized specification 6 1 1 - 98, Class 1 as follows: . Film thickness - 10-15 microns . Coating Density - 38g/linch'
+]
+
 const gallery = [
   { src: '/assets/img/quality-01f0bf.png', alt: 'Quality inspection at every finishing line' },
   { src: '/assets/img/aaa_76802c5f.jpg', alt: 'Testing facility and laboratory equipment' },
@@ -24,13 +30,13 @@ const gallery = [
 
 <template>
   <section class="page-hero mfg-hero">
-    <div class="mfg-hero-bg" style="background-image: url('/assets/img/dscf1358_1422c.jpg');"></div>
+    <div class="mfg-hero-bg" :style="`background-image: url('${heroBg}')`"></div>
     <div class="mfg-hero-overlay"></div>
     <div class="crumbs"><NuxtLink to="/">Home</NuxtLink> &raquo; <NuxtLink to="/manufacturing">Manufacturing</NuxtLink> &raquo; Quality Inspection</div>
     <div class="container">
       <span class="kicker">Step 08 — Quality Assurance</span>
       <h1>QUALITY INSPECTION</h1>
-      <p class="hero-sub">Every profile is inspected at every finishing line — meeting BS 1474, ASTM B221, BS 3987 and AAMA 611-98 Class 1 standards.</p>
+      <p class="hero-sub">Each product is checked by our quality inspectors placed at every finishing line to ensure only those profiles meeting the assured quality is sent to the packaging department.</p>
       <div class="hero-meta">
         <span class="mfg-badge">BS 1474 Compliant</span>
         <span class="mfg-badge">ASTM B221 / BS 3987</span>
@@ -39,60 +45,39 @@ const gallery = [
     </div>
   </section>
 
-  <div class="mfg-subnav">
-    <div class="container">
-      <NuxtLink to="/manufacturing">Overview</NuxtLink>
-      <NuxtLink to="/manufacturing-billet-casting">Casting</NuxtLink>
-      <NuxtLink to="/manufacturing-extrusion-presses">Extruding</NuxtLink>
-      <NuxtLink to="/manufacturing-aging-tempering-oven">Tempering</NuxtLink>
-      <NuxtLink to="/manufacturing-anodizing-section">Anodizing</NuxtLink>
-      <NuxtLink to="/manufacturing-powder-coating-plant">Powder Coating</NuxtLink>
-      <NuxtLink to="/manufacturing-wooden-finish">Wooden Finish</NuxtLink>
-      <NuxtLink to="/manufacturing-quality-inspection" class="active">Quality</NuxtLink>
-      <NuxtLink to="/manufacturing-packaging">Packaging</NuxtLink>
-      <NuxtLink to="/manufacturing-warehousing-and-delivery">Warehousing</NuxtLink>
-      <NuxtLink to="/manufacturing-etp">ETP</NuxtLink>
-    </div>
-  </div>
+  <ManufacturingSubnav active="/manufacturing-quality-inspection" />
 
-  <section class="section">
-    <div class="container">
-      <div class="mfg-page-body">
-        <div class="mfg-copy">
-          <span class="kicker">Quality Inspection</span>
-          <p>Each product is checked by our quality inspectors placed at every finishing line to ensure only those profiles meeting the assured quality are sent to the packaging department.</p>
-          <p>Our manufacturing is done in accordance with BS 1474, ASTM B221 and BS 3987 — the international standards that define aluminium extrusion quality across the industry.</p>
-          <p>The aluminium sections are anodized according to the American Architectural Manufacturing Association (AAMA). Anodized specification AAMA 611-98, Class 1, as follows:</p>
-          <ul class="check-list mt-4">
-            <li>Film thickness — 10–15 microns</li>
-            <li>Coating density — 38 g/l inch</li>
-          </ul>
-          <p style="margin-top:16px;">A dedicated, passionate, and powerful team ensures every profile that leaves our factory carries the DHAKATHAI ALCOMAXX PLC name with pride.</p>
-          <div class="mfg-facts">
-            <div v-for="f in facts" :key="f.num" class="mfg-fact">
-              <span class="mfg-fact-num">{{ f.num }}</span>
-              <span>{{ f.label }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mfg-figure">
-          <picture>
-            <source media="(min-width: 768px)" srcset="/assets/img/quality-01f0bf.png">
-            <img src="/assets/img/quality-01f0bf.png" alt="Quality inspection at every finishing line" loading="lazy">
-          </picture>
-          <figcaption class="mfg-cap">Quality inspection at every finishing line</figcaption>
-        </div>
-      </div>
-
-      <h2 class="mfg-label">Testing Facility</h2>
-      <div class="mfg-strip">
-        <ul>
-          <li v-for="img in gallery.slice(1)" :key="img.src">
-            <img :src="img.src" :alt="img.alt" loading="lazy">
-          </li>
+  <ManufacturingStory
+    label="How quality is verified"
+    :paragraphs="paragraphs"
+    :facts="facts"
+    facts-label="Standards At A Glance"
+    :image="gallery[0].src"
+    :image-alt="gallery[0].alt"
+    :caption="gallery[0].alt"
+  >
+    <h2 class="mfg-label mfg-label-spaced">Anodized Specification</h2>
+    <div class="mfg-story-grid">
+      <article class="mfg-story-card">
+        <span class="mfg-story-num">01</span>
+        <ul class="check-list mt-4">
+          <li>Film thickness — 10–15 microns</li>
+          <li>Coating density — 38 g/l inch</li>
         </ul>
-      </div>
+      </article>
     </div>
-  </section>
+
+    <h2 class="mfg-label mfg-label-spaced">Testing Facility</h2>
+    <figure class="mfg-bottom-figure">
+      <img :src="gallery[gallery.length - 1].src" :alt="gallery[gallery.length - 1].alt" loading="lazy">
+      <figcaption>{{ gallery[gallery.length - 1].alt }}</figcaption>
+    </figure>
+    <NuxtLink to="/manufacturing-packaging" class="mfg-next-card">
+      <div>
+        <h3>Next: Packaging</h3>
+        <p>Poly-wrapped and shrink-wrapped with protective tape</p>
+      </div>
+      <span class="mfg-next-arrow" aria-hidden="true">→</span>
+    </NuxtLink>
+  </ManufacturingStory>
 </template>

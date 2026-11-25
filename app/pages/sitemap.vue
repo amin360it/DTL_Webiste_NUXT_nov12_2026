@@ -55,7 +55,8 @@ const nodes: Node[] = [
       { label: 'Effluent Treatment Plant (ETP)', to: '/manufacturing-etp' },
       { label: 'Quality Inspection', to: '/manufacturing-quality-inspection' },
       { label: 'Packaging', to: '/manufacturing-packaging' },
-      { label: 'Warehousing & Delivery', to: '/manufacturing-warehousing-and-delivery' }
+      { label: 'Warehousing & Delivery', to: '/manufacturing-warehousing-and-delivery' },
+      { label: 'Protecting Our Environment', to: '/manufacturing-environment' }
     ]
   },
   {

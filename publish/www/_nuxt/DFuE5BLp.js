@@ -1,1 +1,0 @@
-import{c as e}from"#entry";var t=e(`/assets/img/p7_info_dhakathai-alcomaxx3404.jpg`);export{t};

@@ -1,1 +1,0 @@
-import{c as e}from"#entry";var t=e(`/assets/img/toyota_coaster-500x500c0f4.jpg`);export{t};
